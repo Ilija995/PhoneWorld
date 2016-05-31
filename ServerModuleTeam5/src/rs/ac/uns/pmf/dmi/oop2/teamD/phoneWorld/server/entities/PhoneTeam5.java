@@ -1,6 +1,8 @@
 package rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 
@@ -21,6 +23,7 @@ public class PhoneTeam5 implements Serializable {
 	private String photosFolderPath;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer getId() {
 		return id;
 	}

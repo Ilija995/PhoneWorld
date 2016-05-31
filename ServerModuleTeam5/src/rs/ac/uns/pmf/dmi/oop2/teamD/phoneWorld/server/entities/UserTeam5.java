@@ -28,6 +28,7 @@ public class UserTeam5 implements Serializable {
 	private Collection<CommentTeam5> comments;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer getId() {
 		return id;
 	}

@@ -1,9 +1,6 @@
 package rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -19,6 +16,7 @@ public class BidTeam5 implements Serializable {
 	private Integer amount;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer getId() {
 		return id;
 	}
