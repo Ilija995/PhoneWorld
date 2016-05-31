@@ -8,7 +8,12 @@ import java.util.Collection;
  * Represents one user account
  */
 @Entity(name = "USERS_TEAM_5")
-@NamedQuery(name = "Users.getUser", query = "SELECT user FROM USERS_TEAM_5 user WHERE username = :username")
+@NamedQueries({
+		@NamedQuery(name = "Users.getUser", query = "SELECT user FROM USERS_TEAM_5 user WHERE username = :username"),
+		@NamedQuery(name = "Users.getByAd", query = "SELECT user FROM USERS_TEAM_5 user WHERE :ad MEMBER OF user.ads"),
+		@NamedQuery(name = "Users.getByBid", query = "SELECT user FROM USERS_TEAM_5 user WHERE :bid MEMBER OF user.bids"),
+})
+
 public class UserTeam5 implements Serializable {
 
 	private Integer id;
