@@ -17,7 +17,7 @@ import java.util.Collection;
 @Singleton
 @LocalBean
 @Startup
-public class FillPhoneWorld {
+public class FillPhoneWorldDb {
 
     @PersistenceContext(name = "PHONE_WORLD_DB")
     private EntityManager em;
