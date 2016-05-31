@@ -98,7 +98,7 @@ public class AdTeam5 implements Serializable {
 		return timestamp;
 	}
 
-	public void setTimestamp() {
+	public void setTimestamp(Timestamp timestamp) {
 		this.timestamp = timestamp;
 	}
 }

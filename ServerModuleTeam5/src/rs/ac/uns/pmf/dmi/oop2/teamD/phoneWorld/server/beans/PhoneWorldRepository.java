@@ -11,18 +11,50 @@ import javax.ejb.Remote;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+
 /**
- * Created by UserPC on 31.05.2016..
+ * Repository class that communicates with database
  */
 @Stateless
-@Remote(IPhoneWorld.class)
-public class PhoneWorld implements IPhoneWorld{
+@Remote(IPhoneWorldRepository.class)
+public class PhoneWorldRepository implements IPhoneWorldRepository {
 
-    @PersistenceContext(name = "TEAM5_EE")
+    @PersistenceContext(name = "PHONE_WORLD_DB")
     private EntityManager em;
 
     @Override
-    public List<AdTeam5> getAllAdsByStatus(StatusTeam5 status){
+    public List<AdTeam5> getAllUserAds(String username) {
+        return null;
+    }
+
+    @Override
+    public List<AdTeam5> getUserOwnedAds(String username) {
+        return null;
+    }
+
+    @Override
+    public List<AdTeam5> getUserCommentedAds(String username) {
+        return null;
+    }
+
+    @Override
+    public List<AdTeam5> getUserBidAds(String username) {
+        return null;
+    }
+
+    @Override
+    public List<AdTeam5> getAdsByStatus(StatusTeam5 status) {
+        return null;
+    }
+
+    @Override
+    public void removeAd(int id) {
+
+    }
+
+    /*
+    @Override
+    public List<AdTeam5> getAllAdsByStatus(StatusTeam5 status) {
         TypedQuery<AdTeam5> q = em.createNamedQuery("Ads.getAdsByStatus", AdTeam5.class);
         q.setParameter("status", status);
         return q.getResultList();
@@ -73,4 +105,5 @@ public class PhoneWorld implements IPhoneWorld{
         }
         em.remove(bid);
     }
+    */
 }

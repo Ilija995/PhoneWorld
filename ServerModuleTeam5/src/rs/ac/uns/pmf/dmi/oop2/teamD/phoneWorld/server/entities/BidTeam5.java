@@ -16,7 +16,7 @@ public class BidTeam5 implements Serializable {
 	private Integer id;
 	private AdTeam5 ad;
 	private UserTeam5 bidder;
-	private Integer bid;
+	private Integer amount;
 
 	@Id
 	public Integer getId() {
@@ -45,11 +45,11 @@ public class BidTeam5 implements Serializable {
 		this.bidder = bidder;
 	}
 
-	public Integer getBid() {
-		return bid;
+	public Integer getAmount() {
+		return amount;
 	}
 
-	public void setBid(Integer bid) {
-		this.bid = bid;
+	public void setAmount(Integer bid) {
+		this.amount = bid;
 	}
 }
