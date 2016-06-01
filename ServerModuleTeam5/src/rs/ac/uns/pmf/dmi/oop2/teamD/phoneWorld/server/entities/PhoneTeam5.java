@@ -1,10 +1,10 @@
 package rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import java.io.Serializable;
-import java.util.Collection;
 
 /**
  * Class representing one cell phone
@@ -20,9 +20,10 @@ public class PhoneTeam5 implements Serializable {
 	private String displayResolution;
 	private String cpu;
 	private int batteryCapacity;
-	private Collection<PhotoTeam5> photos;
+	private String photosFolderPath;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer getId() {
 		return id;
 	}
@@ -87,12 +88,11 @@ public class PhoneTeam5 implements Serializable {
 		this.batteryCapacity = batteryCapacity;
 	}
 
-	@OneToMany(mappedBy = "phone")
-	public Collection<PhotoTeam5> getPhotos() {
-		return photos;
+	public String getPhotosFolderPath() {
+		return photosFolderPath;
 	}
 
-	public void setPhotos(Collection<PhotoTeam5> photos) {
-		this.photos = photos;
+	public void setPhotosFolderPath(String photosFolderPath) {
+		this.photosFolderPath = photosFolderPath;
 	}
 }

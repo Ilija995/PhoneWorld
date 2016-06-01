@@ -8,7 +8,11 @@ import java.util.Collection;
  * Represents one user account
  */
 @Entity(name = "USERS_TEAM_5")
-@NamedQuery(name = "Users.getUser", query = "SELECT user FROM USERS_TEAM_5 user WHERE username = :username")
+@NamedQueries({
+		@NamedQuery(name = "Users.getUser", query = "SELECT user FROM USERS_TEAM_5 user WHERE username = :username"),
+		@NamedQuery(name = "Users.getByAd", query = "SELECT user FROM USERS_TEAM_5 user WHERE :ad MEMBER OF user.ads"),
+		@NamedQuery(name = "Users.getByBid", query = "SELECT user FROM USERS_TEAM_5 user WHERE :bid MEMBER OF user.bids"),
+})
 public class UserTeam5 implements Serializable {
 
 	private Integer id;
@@ -17,13 +21,14 @@ public class UserTeam5 implements Serializable {
 	private String secondName;
 	private String email;
 	private String passwordToken; // Not storing raw password for security reasons
-	private PhotoTeam5 avatar;
+	private String avatarPath;
 	private String userInfo;
 	private Collection<AdTeam5> ads;
 	private Collection<BidTeam5> bids;
 	private Collection<CommentTeam5> comments;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer getId() {
 		return id;
 	}
@@ -74,13 +79,12 @@ public class UserTeam5 implements Serializable {
 		this.passwordToken = passwordToken;
 	}
 
-	@OneToOne(mappedBy = "user")
-	public PhotoTeam5 getAvatar() {
-		return avatar;
+	public String getAvatarPath() {
+		return avatarPath;
 	}
 
-	public void setAvatar(PhotoTeam5 avatar) {
-		this.avatar = avatar;
+	public void setAvatarPath(String avatarPath) {
+		this.avatarPath = avatarPath;
 	}
 
 	public String getUserInfo() {

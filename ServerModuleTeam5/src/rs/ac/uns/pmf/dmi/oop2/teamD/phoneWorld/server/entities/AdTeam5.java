@@ -26,6 +26,7 @@ public class AdTeam5 implements Serializable {
 	private Timestamp timestamp;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer getId() {
 		return id;
 	}

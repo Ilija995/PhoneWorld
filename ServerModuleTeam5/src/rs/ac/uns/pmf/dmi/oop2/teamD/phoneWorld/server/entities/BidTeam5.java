@@ -1,9 +1,6 @@
 package rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -16,9 +13,10 @@ public class BidTeam5 implements Serializable {
 	private Integer id;
 	private AdTeam5 ad;
 	private UserTeam5 bidder;
-	private Integer bid;
+	private Integer amount;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer getId() {
 		return id;
 	}
@@ -45,11 +43,11 @@ public class BidTeam5 implements Serializable {
 		this.bidder = bidder;
 	}
 
-	public Integer getBid() {
-		return bid;
+	public Integer getAmount() {
+		return amount;
 	}
 
-	public void setBid(Integer bid) {
-		this.bid = bid;
+	public void setAmount(Integer bid) {
+		this.amount = bid;
 	}
 }
