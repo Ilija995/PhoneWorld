@@ -28,15 +28,13 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
     @Override
     public List<AdTeam5> getAllUserAds(String username) {
         List<AdTeam5> ownedAds = getUserOwnedAds(username);
-        List<AdTeam5> bidAds = getUserBidAds(username);
+        List<AdTeam5> bidAds = getUserCommentedAds(username);
+        List<AdTeam5> commentAds = getUserBidAds(username);
         List<AdTeam5> allAds = new ArrayList<>();
-        for(int i = 0; i < ownedAds.size(); i++){
-            allAds.add(ownedAds.get(i));
-        }
-        for(int i = 0; i < bidAds.size(); i++){
-            allAds.add(bidAds.get(i));
-        }
-        Collections.sort(allAds, (AdTeam5 a1, AdTeam5 a2) -> a1.getTimestamp().compareTo(a2.getTimestamp()));
+        allAds.addAll(ownedAds);
+        allAds.addAll(bidAds);
+        allAds.addAll(commentAds);
+        Collections.sort(allAds, (a1, a2) -> a1.getTimestamp().compareTo(a2.getTimestamp()));
         return allAds;
     }
 
@@ -83,59 +81,4 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
         }
         em.remove(ad);
     }
-
-    /*
-    @Override
-    public List<AdTeam5> getAllAdsByStatus(StatusTeam5 status) {
-        TypedQuery<AdTeam5> q = em.createNamedQuery("Ads.getAdsByStatus", AdTeam5.class);
-        q.setParameter("status", status);
-        return q.getResultList();
-    }
-
-    @Override
-    public List<BidTeam5> getUserBids(UserTeam5 user) {
-        TypedQuery<BidTeam5> q = em.createNamedQuery("Bids.getUserBidAds", BidTeam5.class);
-        q.setParameter("username", user.getUsername());
-        return q.getResultList();
-    }
-
-    @Override
-    public List<AdTeam5> getUserAds(UserTeam5 user) {
-        TypedQuery<AdTeam5> q = em.createNamedQuery("Ads.getUserOwnedAds", AdTeam5.class);
-        q.setParameter("username", user.getUsername());
-        return q.getResultList();
-    }
-
-    @Override
-    public void removeAd(int id) {
-        AdTeam5 ad = em.find(AdTeam5.class, id);
-        if (ad == null)
-            return;
-        TypedQuery<UserTeam5> q = em.createNamedQuery("Users.getByAd", UserTeam5.class);
-        q.setParameter("ad", ad);
-        List<UserTeam5> list = q.getResultList();
-        for (UserTeam5 u : list)
-        {
-            u.getAds().remove(ad);
-            em.merge(u);
-        }
-        em.remove(ad);
-    }
-
-    @Override
-    public void removeBid(int id) {
-        BidTeam5 bid = em.find(BidTeam5.class, id);
-        if (bid == null)
-            return;
-        TypedQuery<UserTeam5> q = em.createNamedQuery("Users.getByBid", UserTeam5.class);
-        q.setParameter("bid", bid);
-        List<UserTeam5> list = q.getResultList();
-        for (UserTeam5 u : list)
-        {
-            u.getBids().remove(bid);
-            em.merge(u);
-        }
-        em.remove(bid);
-    }
-    */
 }
