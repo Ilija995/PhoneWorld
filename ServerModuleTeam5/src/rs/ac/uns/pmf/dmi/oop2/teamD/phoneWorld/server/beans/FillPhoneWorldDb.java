@@ -27,7 +27,7 @@ public class FillPhoneWorldDb {
         //TODO;
     }
 
-    private AdTeam5 getOrAddAd(Integer id,
+    private AdTeam5 addAd(Integer id,
                                UserTeam5 owner,
                                PhoneTeam5 phone,
                                String title,
@@ -55,7 +55,7 @@ public class FillPhoneWorldDb {
         return ad;
     }
 
-    private BidTeam5 getOrAddBid(Integer id, AdTeam5 ad, UserTeam5 bidder, Integer amount)
+    private BidTeam5 addBid(Integer id, AdTeam5 ad, UserTeam5 bidder, Integer amount)
     {
         BidTeam5 bid = em.find(BidTeam5.class, id);
         if (bid != null)
@@ -69,7 +69,7 @@ public class FillPhoneWorldDb {
         return bid;
     }
 
-    private UserTeam5 getOrAddUser(Integer id,
+    private UserTeam5 addUser(Integer id,
                                    String username,
                                    String firstName,
                                    String secondName,
@@ -101,11 +101,52 @@ public class FillPhoneWorldDb {
         return u;
     }
 
-    private PhoneTeam5 getOrAdPhone() {
-        throw new UnsupportedOperationException();
+    private PhoneTeam5 addPhone(Integer id,
+                                    String brand,
+                                    String model,
+                                    String bodyDimensions,
+                                    String displaySize,
+                                    String displayResolution,
+                                    String cpu,
+                                    int batteryCapacity,
+                                    String photosFolderPath
+    ) {
+        PhoneTeam5 p = em.find(PhoneTeam5.class, id);
+        if(p != null)
+            return p;
+
+        p = new PhoneTeam5();
+        p.setId(id);
+        p.setBrand(brand);
+        p.setModel(model);
+        p.setBodyDimensions(bodyDimensions);
+        p.setDisplaySize(displaySize);
+        p.setDisplayResolution(displayResolution);
+        p.setCpu(cpu);
+        p.setBatteryCapacity(batteryCapacity);
+        p.setPhotosFolderPath(photosFolderPath);
+        em.persist(p);
+        return p;
+
     }
 
-    private CommentTeam5 getOrAddComment() {
-        throw new UnsupportedOperationException();
+    private CommentTeam5 addComment(Integer id,
+                                        String content,
+                                        UserTeam5 user,
+                                        AdTeam5 ad,
+                                        Timestamp timestamp
+    ) {
+        CommentTeam5 c = em.find(CommentTeam5.class, id);
+        if(c != null)
+            return c;
+
+        c = new CommentTeam5();
+        c.setId(id);
+        c.setContent(content);
+        c.setUser(user);
+        c.setAd(ad);
+        c.setTimestamp(timestamp);
+        em.persist(c);
+        return c;
     }
 }
