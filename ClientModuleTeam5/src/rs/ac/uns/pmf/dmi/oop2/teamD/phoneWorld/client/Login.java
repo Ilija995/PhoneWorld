@@ -1,4 +1,4 @@
-import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.client.PhoneWorldClient;
+package rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.client;
 
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;

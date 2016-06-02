@@ -1,3 +1,5 @@
+package rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.client;
+
 import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.client.PhoneWorldClient;
 
 import javax.swing.*;
