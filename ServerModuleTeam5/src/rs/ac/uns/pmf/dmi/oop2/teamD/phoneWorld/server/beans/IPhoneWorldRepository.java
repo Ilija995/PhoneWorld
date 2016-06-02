@@ -5,6 +5,7 @@ import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.BidTeam5;
 import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.StatusTeam5;
 import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.UserTeam5;
 
+import java.awt.image.BufferedImage;
 import java.util.List;
 
 /**
@@ -23,4 +24,16 @@ public interface IPhoneWorldRepository {
     List<AdTeam5> getAdsByStatus(StatusTeam5 status);
 
     void removeAd(int id);
+
+    boolean authenticateUser(String username, String password);
+
+    boolean checkCredentialsAvailability(String username, String email);
+
+    byte[] getUserAvatar(String avatarPath);
+
+    String addUserAvatar(String username, byte[] avatar);
+
+    List<byte[]> getPhonePhotos(String photosPath);
+
+    String addPhonePhotos(String username, String adId, List<byte[]> photos);
 }
