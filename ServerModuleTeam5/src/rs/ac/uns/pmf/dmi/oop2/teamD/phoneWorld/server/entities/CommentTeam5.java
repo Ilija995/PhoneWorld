@@ -17,6 +17,10 @@ public class CommentTeam5 implements Serializable {
 	private AdTeam5 ad;
 	private Timestamp timestamp;
 
+	public CommentTeam5() {
+
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer getId() {

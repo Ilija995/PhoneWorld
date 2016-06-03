@@ -22,6 +22,10 @@ public class PhoneTeam5 implements Serializable {
 	private int batteryCapacity;
 	private String photosFolderPath;
 
+	public PhoneTeam5() {
+
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer getId() {

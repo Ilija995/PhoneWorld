@@ -8,11 +8,13 @@ import java.util.Collection;
 /**
  * Represents one phone advertisement
  */
+
 @Entity(name = "ADS_TEAM_5")
 @NamedQueries({
 		@NamedQuery(name = "Ads.getAdsByStatus", query = "SELECT ad FROM ADS_TEAM_5 ad WHERE ad.status = :status"),
 		@NamedQuery(name = "Ads.getUserOwnedAds", query = "SELECT ad FROM ADS_TEAM_5 ad WHERE ad.owner.username = :username"),
 })
+
 public class AdTeam5 implements Serializable {
 
 	private Integer id;
@@ -24,6 +26,10 @@ public class AdTeam5 implements Serializable {
 	private Collection<BidTeam5> bids;
 	private Collection<CommentTeam5> comments;
 	private Timestamp timestamp;
+
+	public AdTeam5() {
+
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

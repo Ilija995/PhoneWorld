@@ -12,7 +12,6 @@ import javax.swing.JRadioButton;
  * Created by Aleksandar on 6/3/2016.
  */
 
-
 public class HomePage extends JPanel {
 
     /**

@@ -28,6 +28,10 @@ public class UserTeam5 implements Serializable {
 	private Collection<BidTeam5> bids;
 	private Collection<CommentTeam5> comments;
 
+	public UserTeam5() {
+
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer getId() {

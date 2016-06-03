@@ -10,7 +10,6 @@ import java.util.List;
  * Shows client for Phone World App
  */
 
-
 public class PhoneWorldClient extends JFrame {
 
     private JPanel contentPane;

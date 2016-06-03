@@ -15,6 +15,10 @@ public class BidTeam5 implements Serializable {
 	private UserTeam5 bidder;
 	private Integer amount;
 
+	public BidTeam5() {
+
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Integer getId() {
