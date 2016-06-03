@@ -6,6 +6,7 @@ import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.StatusTeam5;
 import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.UserTeam5;
 
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -25,15 +26,15 @@ public interface IPhoneWorldRepository {
 
     void removeAd(int id);
 
-    boolean authenticateUser(String username, String password);
+    boolean authenticateUser(String username, char[] password);
 
     boolean checkCredentialsAvailability(String username, String email);
 
-    byte[] getUserAvatar(String avatarPath);
+    byte[] getUserAvatar(String avatarPath) throws IOException;
 
-    String addUserAvatar(String username, byte[] avatar);
+    String addUserAvatar(String username, byte[] avatar) throws IOException;
 
-    List<byte[]> getPhonePhotos(String photosPath);
+    List<byte[]> getPhonePhotos(String photosPath) throws IOException;
 
-    String addPhonePhotos(String username, String adId, List<byte[]> photos);
+    String addPhonePhotos(String username, String adId, List<byte[]> photos) throws IOException;
 }

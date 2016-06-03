@@ -4,11 +4,13 @@ import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.AdTeam5;
 import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.BidTeam5;
 import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.StatusTeam5;
 import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.UserTeam5;
+import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.utilities.ImageStorage;
+import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.utilities.PasswordAuthentication;
 
 import javax.ejb.Stateless;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import javax.ejb.Remote;
 import javax.persistence.EntityManager;
@@ -24,6 +26,9 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
 
     @PersistenceContext(name = "PHONE_WORLD_DB")
     private EntityManager em;
+
+    private PasswordAuthentication passwordAuthentication;
+
 
     @Override
     public List<AdTeam5> getAllUserAds(String username) {
@@ -83,32 +88,55 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
     }
 
     @Override
-    public boolean authenticateUser(String username, String password) {
+    public boolean authenticateUser(String username, char[] password) {
+        TypedQuery<UserTeam5> q = em.createNamedQuery("Users.getUser", UserTeam5.class);
+        q.setParameter("username", username);
+        UserTeam5 user = q.getSingleResult();
+        if(user != null) {
+            return passwordAuthentication.authenticate(password, user.getPasswordToken());
+        }
         return false;
     }
 
     @Override
     public boolean checkCredentialsAvailability(String username, String email) {
-        return false;
+        TypedQuery<UserTeam5> q = em.createNamedQuery("Users.getUser", UserTeam5.class);
+        q.setParameter("username", username);
+        UserTeam5 user = q.getSingleResult();
+        if(user != null) {
+
+            return false;
+        }
+        else {
+            TypedQuery<UserTeam5> q1 = em.createNamedQuery("Users.getUserByEmail", UserTeam5.class);
+            q1.setParameter("email", email);
+            UserTeam5 user1 = q.getSingleResult();
+            if(user1 != null) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
     }
 
     @Override
-    public byte[] getUserAvatar(String avatarPath) {
-        return new byte[0];
+    public byte[] getUserAvatar(String avatarPath) throws IOException {
+        return ImageStorage.getAvatar(avatarPath);
     }
 
     @Override
-    public String addUserAvatar(String username, byte[] avatar) {
-        return null;
+    public String addUserAvatar(String username, byte[] avatar) throws IOException {
+        return ImageStorage.addAvatar(username, avatar);
     }
 
     @Override
-    public List<byte[]> getPhonePhotos(String photosPath) {
-        return null;
+    public List<byte[]> getPhonePhotos(String photosPath) throws IOException {
+        return ImageStorage.getPhonePhotos(photosPath);
     }
 
     @Override
-    public String addPhonePhotos(String username, String adId, List<byte[]> photos) {
-        return null;
+    public String addPhonePhotos(String username, String adId, List<byte[]> photos) throws IOException {
+        return ImageStorage.addPhonePhotos(username, adId, photos);
     }
 }

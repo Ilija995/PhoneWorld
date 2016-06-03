@@ -10,6 +10,7 @@ import java.util.Collection;
 @Entity(name = "USERS_TEAM_5")
 @NamedQueries({
 		@NamedQuery(name = "Users.getUser", query = "SELECT user FROM USERS_TEAM_5 user WHERE username = :username"),
+		@NamedQuery(name = "Users.getUserByEmail", query = "SELECT user FROM USERS_TEAM_5 user WHERE email = :email"),
 		@NamedQuery(name = "Users.getByAd", query = "SELECT user FROM USERS_TEAM_5 user WHERE :ad MEMBER OF user.ads"),
 		@NamedQuery(name = "Users.getByBid", query = "SELECT user FROM USERS_TEAM_5 user WHERE :bid MEMBER OF user.bids"),
 })
