@@ -16,7 +16,7 @@ public class HomeTab extends JPanel {
     private static final long serialVersionUID = 8062118153854194871L;
 
     public HomeTab() {
-        
+
         setLayout(new BorderLayout(0, 0));
 
         JScrollPane scrollPane = new JScrollPane();
