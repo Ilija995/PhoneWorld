@@ -81,4 +81,34 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
         }
         em.remove(ad);
     }
+
+    @Override
+    public boolean authenticateUser(String username, String password) {
+        return false;
+    }
+
+    @Override
+    public boolean checkCredentialsAvailability(String username, String email) {
+        return false;
+    }
+
+    @Override
+    public byte[] getUserAvatar(String avatarPath) {
+        return new byte[0];
+    }
+
+    @Override
+    public String addUserAvatar(String username, byte[] avatar) {
+        return null;
+    }
+
+    @Override
+    public List<byte[]> getPhonePhotos(String photosPath) {
+        return null;
+    }
+
+    @Override
+    public String addPhonePhotos(String username, String adId, List<byte[]> photos) {
+        return null;
+    }
 }

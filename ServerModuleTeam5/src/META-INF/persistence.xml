@@ -10,7 +10,6 @@
 		<class>rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.BidTeam5</class>
 		<class>rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.CommentTeam5</class>
 		<class>rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.PhoneTeam5</class>
-		<class>rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.PhotoTeam5</class>
 		<class>rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.UserTeam5</class>
 
 		<properties>

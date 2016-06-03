@@ -2,6 +2,8 @@ package rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.utilities;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -25,7 +27,7 @@ public final class ImageStorage {
 	 * @return Avatar as buffered image
 	 * @throws IOException
 	 */
-	public static BufferedImage getAvatar(String avatarPath) throws IOException {
+	public static BufferedImage getBufferedAvatar(String avatarPath) throws IOException {
 		if (avatarPath == null) {
 			return ImageIO.read(new File(DEFAULT_AVATAR_PATH));
 		}
@@ -39,13 +41,27 @@ public final class ImageStorage {
 	}
 
 	/**
+	 * Retrieves avatar from storage location
+	 * @param avatarPath Path to avatar in storage
+	 * @return Avatar as array of bytes
+	 * @throws IOException
+	 */
+	public static byte[] getAvatar(String avatarPath) throws IOException {
+		BufferedImage image = getBufferedAvatar(avatarPath);
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		ImageIO.write(image, "png", baos);
+
+		return baos.toByteArray();
+	}
+
+	/**
 	 * Adds avatar to the storage, overwrites if already exits
 	 * @param username Needed for directory creation
 	 * @param avatar Buffered image needed to be stored
 	 * @return Path to the avatar in storage
 	 * @throws IOException
 	 */
-	public static String addAvatar(String username, BufferedImage avatar) throws IOException {
+	public static String addBufferedAvatar(String username, BufferedImage avatar) throws IOException {
 		String userPathString = IMAGE_STORAGE_LOCATION + "\\" + username;
 
 		// Check if user folder exists, if doesn't create
@@ -65,12 +81,23 @@ public final class ImageStorage {
 	}
 
 	/**
+	 * Adds avatar to the storage, overwrites if already exits
+	 * @param username Needed for directory creation
+	 * @param avatar Avatar as byte array needed to be stored
+	 * @return Path to the avatar in storage
+	 * @throws IOException
+	 */
+	public static String addAvatar(String username, byte[] avatar) throws IOException {
+		return addBufferedAvatar(username, ImageIO.read(new ByteArrayInputStream(avatar)));
+	}
+
+	/**
 	 * Retrieves photos from storage
 	 * @param phonePhotosDirPath Path to directory which contains all of the relevant photos
 	 * @return List of photos as buffered images
 	 * @throws IOException
 	 */
-	public static List<BufferedImage> getPhonePhotos(String phonePhotosDirPath) throws IOException {
+	public static List<BufferedImage> getBufferedPhonePhotos(String phonePhotosDirPath) throws IOException {
 		List<BufferedImage> photos = new ArrayList<>();
 
 		if (phonePhotosDirPath == null) {
@@ -94,6 +121,26 @@ public final class ImageStorage {
 	}
 
 	/**
+	 * Retrieves photos from storage
+	 * @param phonePhotosDirPath Path to directory which contains all of the relevant photos
+	 * @return List of photos as byte arrays
+	 * @throws IOException
+	 */
+	public static List<byte[]> getPhonePhotos(String phonePhotosDirPath) throws IOException {
+		List<BufferedImage> photos = getBufferedPhonePhotos(phonePhotosDirPath);
+		List<byte[]> photosAsBytes = new ArrayList<>();
+
+		for (BufferedImage photo : photos) {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ImageIO.write(photo, "png", baos);
+
+			photosAsBytes.add(baos.toByteArray());
+		}
+
+		return photosAsBytes;
+	}
+
+	/**
 	 * Adds photos to the storage. This can be done only once, during ad creation,
 	 * thus any other attempt to add photos of the same phone in the same ad will be impossible
 	 * @param username Needed for folder creation
@@ -102,7 +149,7 @@ public final class ImageStorage {
 	 * @return Path to the folder containing all the photos of this ad
 	 * @throws IOException
 	 */
-	public static String addPhonePhotos(String username, String adId, List<BufferedImage> photos) throws IOException {
+	public static String addBufferedPhonePhotos(String username, String adId, List<BufferedImage> photos) throws IOException {
 		String adDirString = IMAGE_STORAGE_LOCATION + "\\" + username + "\\" + adId;
 
 		// Check if ad folder exists, if doesn't create
@@ -125,5 +172,24 @@ public final class ImageStorage {
 		}
 
 		return adDirString;
+	}
+
+	/**
+	 * Adds photos to the storage. This can be done only once, during ad creation,
+	 * thus any other attempt to add photos of the same phone in the same ad will be impossible
+	 * @param username Needed for folder creation
+	 * @param adId Needed for folder creation
+	 * @param photos List of byte array photos needed to be stored
+	 * @return Path to the folder containing all the photos of this ad
+	 * @throws IOException
+	 */
+	public static String addPhonePhotos(String username, String adId, List<byte[]> photos) throws IOException {
+		List<BufferedImage> bufferedPhotos = new ArrayList<>();
+
+		for (byte[] photo : photos) {
+			bufferedPhotos.add(ImageIO.read(new ByteArrayInputStream(photo)));
+		}
+
+		return addBufferedPhonePhotos(username, adId, bufferedPhotos);
 	}
 }
