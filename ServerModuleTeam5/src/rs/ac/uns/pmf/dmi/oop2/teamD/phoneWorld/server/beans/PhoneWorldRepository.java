@@ -104,7 +104,6 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
         q.setParameter("username", username);
         UserTeam5 user = q.getSingleResult();
         if(user != null) {
-
             return false;
         }
         else {

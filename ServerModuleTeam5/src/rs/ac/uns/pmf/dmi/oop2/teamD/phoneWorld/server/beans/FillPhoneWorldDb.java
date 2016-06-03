@@ -4,6 +4,7 @@ import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.*;
 import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.utilities.ImageStorage;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
@@ -22,6 +23,9 @@ public class FillPhoneWorldDb {
 
     @PersistenceContext(name = "PHONE_WORLD_DB")
     private EntityManager em;
+
+    @EJB(beanName = "PhoneWorldRepository")
+    private IPhoneWorldRepository repository;
 
     @PostConstruct
     public void postConstruct() {
