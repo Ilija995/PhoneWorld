@@ -23,11 +23,11 @@ public class AdsTab extends JPanel {
 
         setLayout(new BorderLayout(0, 0));
 
-        JLabel lblNorth = new JLabel("SELECTED ADS");
+        JLabel lblNorth = new JLabel("SELECTED ADs");
         add(lblNorth, BorderLayout.NORTH);
 
         /**
-         * Maybe, I dan add List<JPanel> to ScrollPane like this, if not there is backup :D
+         * Maybe, we can add List<JPanel> to ScrollPane like this, if not there is backup :D
          */
 
         JScrollPane centarScrollPane = new JScrollPane((Component) ads);
