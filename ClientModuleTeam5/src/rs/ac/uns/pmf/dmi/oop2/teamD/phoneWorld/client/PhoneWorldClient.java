@@ -23,15 +23,13 @@ public class PhoneWorldClient extends JFrame {
      * Launch the application.
      */
     public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        EventQueue.invokeLater(() -> {
                 try {
                     PhoneWorldClient frame = new PhoneWorldClient();
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }
         });
     }
 
@@ -58,16 +56,16 @@ public class PhoneWorldClient extends JFrame {
         return repository;
     }
 
-    public void login(String username, String password){
-
+    public boolean login(String username, String password){
+        return true;
     }
 
-    public void registration(){
-
+    public boolean registration(){
+        return true;
     }
 
-    public void insertUser(List<String> data, Icon avatar){
-
+    public boolean insertUser(List<String> data, Icon avatar){
+        return true;
     }
 
 }

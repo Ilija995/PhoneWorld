@@ -1,32 +1,26 @@
 package rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.client;
 
-import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.client.PhoneWorldClient;
-
 import javax.swing.*;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Registration extends JPanel {
     private JTextField textFieldMail;
-    private JTextField textFieldLName;
+    private JTextField textFieldLastName;
     private JTextField textFieldName;
     private JTextField textFieldUsername;
     private JTextField textFieldPassword;
-    private JTextField textFieldDesc;
-    private PhoneWorldClient frame;
+    private JTextField textFieldDescription;
+    private JTextField textFieldConfirmPassword;
 
     /**
      * Create the registration panel.
      */
-    public Registration() {
-
-        frame = new PhoneWorldClient();
+    public Registration(PhoneWorldClient frame) {
 
         GridBagLayout gridBagLayout = new GridBagLayout();
         gridBagLayout.columnWidths = new int[]{86, 62, 73, 86, 109, 0};
@@ -36,49 +30,49 @@ public class Registration extends JPanel {
         setLayout(gridBagLayout);
 
         JLabel lblPhoneWorldregistration = new JLabel("Phone World~registration:");
-        GridBagConstraints gbc_lblPhoneWorldregistration = new GridBagConstraints();
-        gbc_lblPhoneWorldregistration.fill = GridBagConstraints.HORIZONTAL;
-        gbc_lblPhoneWorldregistration.insets = new Insets(0, 0, 5, 5);
-        gbc_lblPhoneWorldregistration.gridwidth = 3;
-        gbc_lblPhoneWorldregistration.gridx = 1;
-        gbc_lblPhoneWorldregistration.gridy = 0;
-        add(lblPhoneWorldregistration, gbc_lblPhoneWorldregistration);
+        GridBagConstraints gbc_lblPhoneWorldRegistration = new GridBagConstraints();
+        gbc_lblPhoneWorldRegistration.fill = GridBagConstraints.HORIZONTAL;
+        gbc_lblPhoneWorldRegistration.insets = new Insets(0, 0, 5, 5);
+        gbc_lblPhoneWorldRegistration.gridwidth = 3;
+        gbc_lblPhoneWorldRegistration.gridx = 1;
+        gbc_lblPhoneWorldRegistration.gridy = 0;
+        add(lblPhoneWorldregistration, gbc_lblPhoneWorldRegistration);
 
         JLabel lblName = new JLabel("Name:");
-        GridBagConstraints gbc_lblIme = new GridBagConstraints();
-        gbc_lblIme.insets = new Insets(0, 0, 5, 5);
-        gbc_lblIme.anchor = GridBagConstraints.WEST;
-        gbc_lblIme.gridx = 1;
-        gbc_lblIme.gridy = 1;
-        add(lblName, gbc_lblIme);
+        GridBagConstraints gbc_lblName = new GridBagConstraints();
+        gbc_lblName.insets = new Insets(0, 0, 5, 5);
+        gbc_lblName.anchor = GridBagConstraints.WEST;
+        gbc_lblName.gridx = 1;
+        gbc_lblName.gridy = 1;
+        add(lblName, gbc_lblName);
 
         textFieldName = new JTextField();
-        GridBagConstraints gbc_textField = new GridBagConstraints();
-        gbc_textField.insets = new Insets(0, 0, 5, 5);
-        gbc_textField.fill = GridBagConstraints.HORIZONTAL;
-        gbc_textField.gridx = 2;
-        gbc_textField.gridy = 1;
-        add(textFieldName, gbc_textField);
+        GridBagConstraints gbc_textFieldName = new GridBagConstraints();
+        gbc_textFieldName.insets = new Insets(0, 0, 5, 5);
+        gbc_textFieldName.fill = GridBagConstraints.HORIZONTAL;
+        gbc_textFieldName.gridx = 2;
+        gbc_textFieldName.gridy = 1;
+        add(textFieldName, gbc_textFieldName);
         textFieldName.setColumns(10);
 
         JLabel lblLastName = new JLabel("Last name:");
-        GridBagConstraints gbc_lblPrezime = new GridBagConstraints();
-        gbc_lblPrezime.insets = new Insets(0, 0, 5, 5);
-        gbc_lblPrezime.anchor = GridBagConstraints.WEST;
-        gbc_lblPrezime.gridx = 1;
-        gbc_lblPrezime.gridy = 2;
-        add(lblLastName, gbc_lblPrezime);
+        GridBagConstraints gbc_lblLastName = new GridBagConstraints();
+        gbc_lblLastName.insets = new Insets(0, 0, 5, 5);
+        gbc_lblLastName.anchor = GridBagConstraints.WEST;
+        gbc_lblLastName.gridx = 1;
+        gbc_lblLastName.gridy = 2;
+        add(lblLastName, gbc_lblLastName);
 
-        textFieldLName = new JTextField();
-        GridBagConstraints gbc_textField_1 = new GridBagConstraints();
-        gbc_textField_1.insets = new Insets(0, 0, 5, 5);
-        gbc_textField_1.fill = GridBagConstraints.HORIZONTAL;
-        gbc_textField_1.gridx = 2;
-        gbc_textField_1.gridy = 2;
-        add(textFieldLName, gbc_textField_1);
-        textFieldLName.setColumns(10);
+        textFieldLastName = new JTextField();
+        GridBagConstraints gbc_textFieldLastName = new GridBagConstraints();
+        gbc_textFieldLastName.insets = new Insets(0, 0, 5, 5);
+        gbc_textFieldLastName.fill = GridBagConstraints.HORIZONTAL;
+        gbc_textFieldLastName.gridx = 2;
+        gbc_textFieldLastName.gridy = 2;
+        add(textFieldLastName, gbc_textFieldLastName);
+        textFieldLastName.setColumns(10);
 
-        JLabel lblEmail = new JLabel("email");
+        JLabel lblEmail = new JLabel("E-mail:");
         GridBagConstraints gbc_lblEmail = new GridBagConstraints();
         gbc_lblEmail.insets = new Insets(0, 0, 5, 5);
         gbc_lblEmail.anchor = GridBagConstraints.WEST;
@@ -87,12 +81,12 @@ public class Registration extends JPanel {
         add(lblEmail, gbc_lblEmail);
 
         textFieldMail = new JTextField();
-        GridBagConstraints gbc_textField_2 = new GridBagConstraints();
-        gbc_textField_2.insets = new Insets(0, 0, 5, 5);
-        gbc_textField_2.fill = GridBagConstraints.HORIZONTAL;
-        gbc_textField_2.gridx = 2;
-        gbc_textField_2.gridy = 3;
-        add(textFieldMail, gbc_textField_2);
+        GridBagConstraints gbc_textFieldMail = new GridBagConstraints();
+        gbc_textFieldMail.insets = new Insets(0, 0, 5, 5);
+        gbc_textFieldMail.fill = GridBagConstraints.HORIZONTAL;
+        gbc_textFieldMail.gridx = 2;
+        gbc_textFieldMail.gridy = 3;
+        add(textFieldMail, gbc_textFieldMail);
         textFieldMail.setColumns(10);
 
         JLabel lblUsername = new JLabel("Username:");
@@ -104,12 +98,12 @@ public class Registration extends JPanel {
         add(lblUsername, gbc_lblUsername);
 
         textFieldUsername = new JTextField();
-        GridBagConstraints gbc_textField_3 = new GridBagConstraints();
-        gbc_textField_3.insets = new Insets(0, 0, 5, 5);
-        gbc_textField_3.fill = GridBagConstraints.HORIZONTAL;
-        gbc_textField_3.gridx = 2;
-        gbc_textField_3.gridy = 4;
-        add(textFieldUsername, gbc_textField_3);
+        GridBagConstraints gbc_textFieldUsername = new GridBagConstraints();
+        gbc_textFieldUsername.insets = new Insets(0, 0, 5, 5);
+        gbc_textFieldUsername.fill = GridBagConstraints.HORIZONTAL;
+        gbc_textFieldUsername.gridx = 2;
+        gbc_textFieldUsername.gridy = 4;
+        add(textFieldUsername, gbc_textFieldUsername);
         textFieldUsername.setColumns(10);
 
         JLabel lblPassword = new JLabel("Password:");
@@ -122,13 +116,30 @@ public class Registration extends JPanel {
         add(lblPassword, gbc_lblPassword);
 
         textFieldPassword = new JTextField();
-        GridBagConstraints gbc_textField_4 = new GridBagConstraints();
-        gbc_textField_4.insets = new Insets(0, 0, 5, 5);
-        gbc_textField_4.fill = GridBagConstraints.HORIZONTAL;
-        gbc_textField_4.gridx = 2;
-        gbc_textField_4.gridy = 5;
-        add(textFieldPassword, gbc_textField_4);
+        GridBagConstraints gbc_textFieldPassword = new GridBagConstraints();
+        gbc_textFieldPassword.insets = new Insets(0, 0, 5, 5);
+        gbc_textFieldPassword.fill = GridBagConstraints.HORIZONTAL;
+        gbc_textFieldPassword.gridx = 2;
+        gbc_textFieldPassword.gridy = 5;
+        add(textFieldPassword, gbc_textFieldPassword);
         textFieldPassword.setColumns(10);
+
+        JLabel lblConfirmPassword = new JLabel("Confirm password:");
+        GridBagConstraints gbc_lblConfirmPassword = new GridBagConstraints();
+        gbc_lblConfirmPassword.anchor = GridBagConstraints.EAST;
+        gbc_lblConfirmPassword.insets = new Insets(0, 0, 5, 5);
+        gbc_lblConfirmPassword.gridx = 1;
+        gbc_lblConfirmPassword.gridy = 6;
+        add(lblConfirmPassword, gbc_lblConfirmPassword);
+
+        textFieldConfirmPassword = new JTextField();
+        GridBagConstraints gbc_textFieldConfirmPassword = new GridBagConstraints();
+        gbc_textFieldConfirmPassword.insets = new Insets(0, 0, 5, 5);
+        gbc_textFieldConfirmPassword.fill = GridBagConstraints.HORIZONTAL;
+        gbc_textFieldConfirmPassword.gridx = 2;
+        gbc_textFieldConfirmPassword.gridy = 6;
+        add(textFieldConfirmPassword, gbc_textFieldConfirmPassword);
+        textFieldConfirmPassword.setColumns(10);
 
         JLabel lblDescription = new JLabel("Description:");
         GridBagConstraints gbc_lblDescription = new GridBagConstraints();
@@ -138,14 +149,14 @@ public class Registration extends JPanel {
         gbc_lblDescription.gridy = 6;
         add(lblDescription, gbc_lblDescription);
 
-        textFieldDesc = new JTextField();
-        GridBagConstraints gbc_textField_5 = new GridBagConstraints();
-        gbc_textField_5.insets = new Insets(0, 0, 5, 5);
-        gbc_textField_5.fill = GridBagConstraints.HORIZONTAL;
-        gbc_textField_5.gridx = 2;
-        gbc_textField_5.gridy = 6;
-        add(textFieldDesc, gbc_textField_5);
-        textFieldDesc.setColumns(10);
+        textFieldDescription = new JTextField();
+        GridBagConstraints gbc_textFieldDescription = new GridBagConstraints();
+        gbc_textFieldDescription.insets = new Insets(0, 0, 5, 5);
+        gbc_textFieldDescription.fill = GridBagConstraints.HORIZONTAL;
+        gbc_textFieldDescription.gridx = 2;
+        gbc_textFieldDescription.gridy = 6;
+        add(textFieldDescription, gbc_textFieldDescription);
+        textFieldDescription.setColumns(10);
 
         JLabel lblAvatar = new JLabel("Avatar:");
         GridBagConstraints gbc_lblAvatar = new GridBagConstraints();
@@ -165,29 +176,34 @@ public class Registration extends JPanel {
         gbc_comboBox.gridy = 7;
         add(comboBox, gbc_comboBox);
 
-        JButton btnNewButton = new JButton("Create account");
-        btnNewButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+        JButton btnCreateAccount = new JButton("Create account");
+        btnCreateAccount.addActionListener(e -> {
                 String name = textFieldName.getText();
-                String lastname = textFieldLName.getText();
+                String lastName = textFieldLastName.getText();
+                String email = textFieldMail.getText();
                 String username = textFieldUsername.getText();
                 String password = textFieldPassword.getText();
-                String description = textFieldDesc.getText();
-                Icon avatar = (Icon)comboBox.getSelectedItem();
-                List<String> data = new ArrayList<String>();
+                String confirmPassword = textFieldConfirmPassword.getText();
+                String description = textFieldDescription.getText();
+                //insert a path to the image
+                Icon avatar = new ImageIcon("");
+                List<String> data = new ArrayList<>();
                 data.add(0, name);
-                data.add(1, lastname);
-                data.add(2, username);
-                data.add(3, password);
-                data.add(4, description);
-                frame.insertUser(data, avatar);
-            }
+                data.add(1, lastName);
+                data.add(2, email);
+                data.add(3, username);
+                data.add(4, password);
+                data.add(5, confirmPassword);
+                data.add(6, description);
+                boolean successfulRegistration = frame.insertUser(data, avatar);
+                if(!successfulRegistration)
+                    JOptionPane.showMessageDialog(null, "Failed registration!");
         });
-        GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-        gbc_btnNewButton.fill = GridBagConstraints.HORIZONTAL;
-        gbc_btnNewButton.gridx = 4;
-        gbc_btnNewButton.gridy = 8;
-        add(btnNewButton, gbc_btnNewButton);
+        GridBagConstraints gbc_btnCreateAccount = new GridBagConstraints();
+        gbc_btnCreateAccount.fill = GridBagConstraints.HORIZONTAL;
+        gbc_btnCreateAccount.gridx = 4;
+        gbc_btnCreateAccount.gridy = 8;
+        add(btnCreateAccount, gbc_btnCreateAccount);
 
     }
 }
