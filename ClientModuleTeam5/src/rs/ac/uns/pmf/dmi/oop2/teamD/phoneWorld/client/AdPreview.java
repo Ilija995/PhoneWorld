@@ -12,14 +12,15 @@ import java.awt.*;
  * Created by Aleksandar on 6/3/2016.
  */
 
-public class Ad extends JPanel {
+public class AdPreview extends JPanel {
 
     /**
      *
      */
     private static final long serialVersionUID = 2579675749216879576L;
 
-    public Ad(BidTeam5 bid) {
+    public AdPreview(BidTeam5 bid) {
+        // AdTea5 is passed instead of BidTeam5
 
         AdTeam5 ad = bid.getAd();
         PhoneTeam5 phone = ad.getPhone();

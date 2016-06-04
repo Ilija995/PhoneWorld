@@ -12,14 +12,18 @@ import javax.swing.JRadioButton;
  * Created by Aleksandar on 6/3/2016.
  */
 
-public class HomePage extends JPanel {
+public class MainPanel extends JPanel {
 
     /**
      *
      */
     private static final long serialVersionUID = -6464481852682239882L;
 
-    public HomePage() {
+    private PhoneWorldClient client;
+
+    public MainPanel(PhoneWorldClient client) {
+
+        this.client = client;
 
         setLayout(new BorderLayout(0, 0));
 

@@ -6,14 +6,14 @@ import javax.swing.*;
  * Created by Aleksandar on 6/3/2016.
  */
 
-public class PreviewTab extends JPanel {
+public class FullViewTab extends JPanel {
 
     /**
      *
      */
     private static final long serialVersionUID = 9173229264965205982L;
 
-    public PreviewTab() {
+    public FullViewTab() {
 
     }
 }
