@@ -1,12 +1,9 @@
 package rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.client;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 import java.awt.GridBagLayout;
-import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
-import javax.swing.JTextField;
-import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,14 +11,11 @@ import java.awt.event.ActionListener;
 public class Login extends JPanel {
     private JTextField textFieldUsername;
     private JTextField textFieldPassword;
-    private PhoneWorldClient frame;
 
     /**
      * Create the login panel.
      */
-    public Login() {
-
-        frame = new PhoneWorldClient();
+    public Login(PhoneWorldClient frame) {
 
         GridBagLayout gridBagLayout = new GridBagLayout();
         gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
@@ -39,65 +33,62 @@ public class Login extends JPanel {
         gbc_lblPhoneWorld.gridy = 1;
         add(lblPhoneWorld, gbc_lblPhoneWorld);
 
-        JLabel lblNewLabel_3 = new JLabel("Username");
-        GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
-        gbc_lblNewLabel_3.weightx = 3.0;
-        gbc_lblNewLabel_3.insets = new Insets(0, 0, 5, 5);
-        gbc_lblNewLabel_3.gridx = 2;
-        gbc_lblNewLabel_3.gridy = 3;
-        add(lblNewLabel_3, gbc_lblNewLabel_3);
+        JLabel lblUsername = new JLabel("Username");
+        GridBagConstraints gbc_lblUsername = new GridBagConstraints();
+        gbc_lblUsername.weightx = 3.0;
+        gbc_lblUsername.insets = new Insets(0, 0, 5, 5);
+        gbc_lblUsername.gridx = 2;
+        gbc_lblUsername.gridy = 3;
+        add(lblUsername, gbc_lblUsername);
 
         textFieldUsername = new JTextField();
-        GridBagConstraints gbc_textField = new GridBagConstraints();
-        gbc_textField.weightx = 8.0;
-        gbc_textField.insets = new Insets(0, 0, 5, 5);
-        gbc_textField.fill = GridBagConstraints.HORIZONTAL;
-        gbc_textField.gridx = 3;
-        gbc_textField.gridy = 3;
-        add(textFieldUsername, gbc_textField);
+        GridBagConstraints gbc_textFieldUsername = new GridBagConstraints();
+        gbc_textFieldUsername.weightx = 8.0;
+        gbc_textFieldUsername.insets = new Insets(0, 0, 5, 5);
+        gbc_textFieldUsername.fill = GridBagConstraints.HORIZONTAL;
+        gbc_textFieldUsername.gridx = 3;
+        gbc_textFieldUsername.gridy = 3;
+        add(textFieldUsername, gbc_textFieldUsername);
         textFieldUsername.setColumns(10);
 
-        JLabel lblNewLabel_1 = new JLabel("Password");
-        GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
-        gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 5);
-        gbc_lblNewLabel_1.gridx = 2;
-        gbc_lblNewLabel_1.gridy = 5;
-        add(lblNewLabel_1, gbc_lblNewLabel_1);
+        JLabel lblPassword = new JLabel("Password");
+        GridBagConstraints gbc_lblPassword = new GridBagConstraints();
+        gbc_lblPassword.insets = new Insets(0, 0, 5, 5);
+        gbc_lblPassword.gridx = 2;
+        gbc_lblPassword.gridy = 5;
+        add(lblPassword, gbc_lblPassword);
 
         textFieldPassword = new JTextField();
-        GridBagConstraints gbc_textField_1 = new GridBagConstraints();
-        gbc_textField_1.insets = new Insets(0, 0, 5, 5);
-        gbc_textField_1.fill = GridBagConstraints.HORIZONTAL;
-        gbc_textField_1.gridx = 3;
-        gbc_textField_1.gridy = 5;
-        add(textFieldPassword, gbc_textField_1);
+        GridBagConstraints gbc_textFieldPassword = new GridBagConstraints();
+        gbc_textFieldPassword.insets = new Insets(0, 0, 5, 5);
+        gbc_textFieldPassword.fill = GridBagConstraints.HORIZONTAL;
+        gbc_textFieldPassword.gridx = 3;
+        gbc_textFieldPassword.gridy = 5;
+        add(textFieldPassword, gbc_textFieldPassword);
         textFieldPassword.setColumns(10);
 
-        JButton btnNewButton = new JButton("Login");
-        btnNewButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
+        JButton btnLogin = new JButton("Login");
+        btnLogin.addActionListener(e -> {
                 String username = textFieldUsername.getText();
                 String password = textFieldPassword.getText();
-                frame.login(username, password);
-            }
+                boolean successfulLogin = frame.login(username, password);
+                if(!successfulLogin)
+                    JOptionPane.showMessageDialog(null, "Failed login! Check your username and password...");
         });
-        GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-        gbc_btnNewButton.insets = new Insets(0, 0, 5, 5);
-        gbc_btnNewButton.gridx = 4;
-        gbc_btnNewButton.gridy = 7;
-        add(btnNewButton, gbc_btnNewButton);
+        GridBagConstraints gbc_btnLogin = new GridBagConstraints();
+        gbc_btnLogin.insets = new Insets(0, 0, 5, 5);
+        gbc_btnLogin.gridx = 4;
+        gbc_btnLogin.gridy = 7;
+        add(btnLogin, gbc_btnLogin);
 
-        JButton btnNewButton_1 = new JButton("Create account");
-        btnNewButton_1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e){
-                frame.registration();
-            }
-        });
-        GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
-        gbc_btnNewButton_1.insets = new Insets(0, 0, 5, 0);
-        gbc_btnNewButton_1.gridx = 5;
-        gbc_btnNewButton_1.gridy = 9;
-        add(btnNewButton_1, gbc_btnNewButton_1);
+        JButton btnCreateAccount = new JButton("Create account");
+        btnCreateAccount.addActionListener(e -> frame.registration());
+
+        GridBagConstraints gbc_btnCreateAccount = new GridBagConstraints();
+        gbc_btnCreateAccount.insets = new Insets(0, 0, 5, 0);
+        gbc_btnCreateAccount.gridx = 5;
+        gbc_btnCreateAccount.gridy = 9;
+        add(btnCreateAccount, gbc_btnCreateAccount);
 
     }
 
