@@ -7,6 +7,9 @@ import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.PhoneTeam5;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.Collection;
 
 /**
  * Created by Aleksandar on 6/3/2016.
@@ -19,10 +22,8 @@ public class AdPreview extends JPanel {
      */
     private static final long serialVersionUID = 2579675749216879576L;
 
-    public AdPreview(BidTeam5 bid) {
-        // AdTea5 is passed instead of BidTeam5
+    public AdPreview(AdTeam5 ad) {
 
-        AdTeam5 ad = bid.getAd();
         PhoneTeam5 phone = ad.getPhone();
 
         setLayout(new BorderLayout(0, 0));
@@ -33,6 +34,10 @@ public class AdPreview extends JPanel {
         JLabel lblThumbnail = new JLabel();
         panelWest.add(lblThumbnail);
         lblThumbnail.setIcon(null);
+
+        /**
+         * TODO: Add Icon
+         */
 
         JPanel panelEast = new JPanel();
         add(panelEast, BorderLayout.EAST);
@@ -52,8 +57,11 @@ public class AdPreview extends JPanel {
                 break;
         }
 
-        lblPrice.setText(bid.getAmount().toString());
+        Collection<BidTeam5> bids = ad.getBids();
+        BidTeam5 maxBid = bids.stream().max((b1, b2) -> b1.getAmount() - b2.getAmount()).get();
+        int maxBidPrice = maxBid.getAmount();
 
+        lblPrice.setText(maxBidPrice + "");
 
         JPanel panelCenter = new JPanel();
         add(panelCenter, BorderLayout.CENTER);
@@ -62,6 +70,12 @@ public class AdPreview extends JPanel {
         JLabel lblAdTitle = new JLabel();
         panelCenter.add(lblAdTitle);
         lblAdTitle.setText(ad.getTitle());
+        lblAdTitle.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // TODO:
+            }
+        });
 
         JLabel lblOwner = new JLabel();
         panelCenter.add(lblOwner);
