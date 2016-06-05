@@ -110,12 +110,7 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
             TypedQuery<UserTeam5> q1 = em.createNamedQuery("Users.getUserByEmail", UserTeam5.class);
             q1.setParameter("email", email);
             UserTeam5 user1 = q.getSingleResult();
-            if(user1 != null) {
-                return false;
-            }
-            else {
-                return true;
-            }
+            return user1 == null;
         }
     }
 
