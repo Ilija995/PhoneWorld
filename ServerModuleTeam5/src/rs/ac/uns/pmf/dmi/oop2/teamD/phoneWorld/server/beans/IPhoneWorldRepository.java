@@ -1,12 +1,10 @@
 package rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans;
 
-import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.AdTeam5;
-import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.BidTeam5;
-import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.StatusTeam5;
-import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.UserTeam5;
+import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.*;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -37,4 +35,39 @@ public interface IPhoneWorldRepository {
     List<byte[]> getPhonePhotos(String photosPath) throws IOException;
 
     String addPhonePhotos(String username, String adId, List<byte[]> photos) throws IOException;
+
+    AdTeam5 addAd(UserTeam5 owner,
+                          PhoneTeam5 phone,
+                          String title,
+                          String description,
+                          StatusTeam5 status,
+                          Timestamp timestamp
+    );
+
+    BidTeam5 addBid(AdTeam5 ad, UserTeam5 bidder, Integer amount);
+
+    UserTeam5 addUser(String username,
+                      String firstName,
+                      String secondName,
+                      String email,
+                      String passwordToken,
+                      String avatarPath,
+                      String userInfo
+    );
+
+    PhoneTeam5 addPhone(String brand,
+                        String model,
+                        String bodyDimensions,
+                        String displaySize,
+                        String displayResolution,
+                        String cpu,
+                        int batteryCapacity,
+                        String photosFolderPath
+    );
+
+    CommentTeam5 addComment(String content,
+                            UserTeam5 user,
+                            AdTeam5 ad,
+                            Timestamp timestamp
+    );
 }
