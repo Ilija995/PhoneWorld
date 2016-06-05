@@ -1,14 +1,12 @@
 package rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans;
 
-import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.AdTeam5;
-import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.BidTeam5;
-import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.StatusTeam5;
-import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.UserTeam5;
+import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.*;
 import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.utilities.ImageStorage;
 import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.utilities.PasswordAuthentication;
 
 import javax.ejb.Stateless;
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -110,12 +108,7 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
             TypedQuery<UserTeam5> q1 = em.createNamedQuery("Users.getUserByEmail", UserTeam5.class);
             q1.setParameter("email", email);
             UserTeam5 user1 = q.getSingleResult();
-            if(user1 != null) {
-                return false;
-            }
-            else {
-                return true;
-            }
+            return user1 == null;
         }
     }
 
@@ -137,5 +130,95 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
     @Override
     public String addPhonePhotos(String username, String adId, List<byte[]> photos) throws IOException {
         return ImageStorage.addPhonePhotos(username, adId, photos);
+    }
+
+    @Override
+    public AdTeam5 addAd(UserTeam5 owner,
+                          PhoneTeam5 phone,
+                          String title,
+                          String description,
+                          StatusTeam5 status,
+                          Timestamp timestamp
+    ) {
+        AdTeam5 ad = new AdTeam5();
+        ad.setOwner(owner);
+        ad.setPhone(phone);
+        ad.setTitle(title);
+        ad.setDescription(description);
+        ad.setStatus(status);
+        ad.setTimestamp(timestamp);
+        em.persist(ad);
+        return ad;
+    }
+
+    @Override
+    public BidTeam5 addBid(AdTeam5 ad, UserTeam5 bidder, Integer amount)
+    {
+        BidTeam5 bid = new BidTeam5();
+        bid.setAd(ad);
+        bid.setBidder(bidder);
+        bid.setAmount(amount);
+        em.persist(bid);
+        return bid;
+    }
+
+    @Override
+    public UserTeam5 addUser(String username,
+                              String firstName,
+                              String secondName,
+                              String email,
+                              String passwordToken,
+                              String avatarPath,
+                              String userInfo
+    ) {
+        UserTeam5 u = new UserTeam5();
+        u.setUsername(username);
+        u.setFirstName(firstName);
+        u.setSecondName(secondName);
+        u.setEmail(email);
+        u.setPasswordToken(passwordToken);
+        u.setAvatarPath(avatarPath);
+        u.setUserInfo(userInfo);
+        em.persist(u);
+        return u;
+    }
+
+    @Override
+    public PhoneTeam5 addPhone(String brand,
+                                String model,
+                                String bodyDimensions,
+                                String displaySize,
+                                String displayResolution,
+                                String cpu,
+                                int batteryCapacity,
+                                String photosFolderPath
+    ) {
+        PhoneTeam5 p = new PhoneTeam5();
+        p.setBrand(brand);
+        p.setModel(model);
+        p.setBodyDimensions(bodyDimensions);
+        p.setDisplaySize(displaySize);
+        p.setDisplayResolution(displayResolution);
+        p.setCpu(cpu);
+        p.setBatteryCapacity(batteryCapacity);
+        p.setPhotosFolderPath(photosFolderPath);
+        em.persist(p);
+        return p;
+
+    }
+
+    @Override
+    public CommentTeam5 addComment(String content,
+                                    UserTeam5 user,
+                                    AdTeam5 ad,
+                                    Timestamp timestamp
+    ) {
+        CommentTeam5 c = new CommentTeam5();
+        c.setContent(content);
+        c.setUser(user);
+        c.setAd(ad);
+        c.setTimestamp(timestamp);
+        em.persist(c);
+        return c;
     }
 }
