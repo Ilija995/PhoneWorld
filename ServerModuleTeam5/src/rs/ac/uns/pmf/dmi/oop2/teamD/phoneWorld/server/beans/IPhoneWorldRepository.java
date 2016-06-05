@@ -14,6 +14,10 @@ public interface IPhoneWorldRepository {
 
     List<AdTeam5> getAllUserAds(String username);
 
+    UserTeam5 getUser(String username);
+
+    UserTeam5 getUserByEmail(String email);
+
     List<AdTeam5> getUserOwnedAds(String username);
 
     List<AdTeam5> getUserCommentedAds(String username);
@@ -21,6 +25,8 @@ public interface IPhoneWorldRepository {
     List<AdTeam5> getUserBidAds(String username);
 
     List<AdTeam5> getAdsByStatus(StatusTeam5 status);
+
+    String getHashedPassword(char[] password);
 
     void removeAd(int id);
 

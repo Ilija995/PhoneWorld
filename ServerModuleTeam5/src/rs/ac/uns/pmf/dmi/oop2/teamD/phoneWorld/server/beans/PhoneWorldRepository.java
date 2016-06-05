@@ -12,6 +12,7 @@ import java.util.Collections;
 import java.util.List;
 import javax.ejb.Remote;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
@@ -25,8 +26,7 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
     @PersistenceContext(name = "PHONE_WORLD_DB")
     private EntityManager em;
 
-    private PasswordAuthentication passwordAuthentication;
-
+    private PasswordAuthentication passwordAuthentication = new PasswordAuthentication();
 
     @Override
     public List<AdTeam5> getAllUserAds(String username) {
@@ -39,6 +39,34 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
         allAds.addAll(commentAds);
         Collections.sort(allAds, (a1, a2) -> a1.getTimestamp().compareTo(a2.getTimestamp()));
         return allAds;
+    }
+
+    @Override
+    public UserTeam5 getUser(String username) {
+        TypedQuery<UserTeam5> q = em.createNamedQuery("Users.getUser", UserTeam5.class);
+        q.setParameter("username", username);
+        UserTeam5 result;
+        try {
+            result = q.getSingleResult();
+        }
+        catch (NoResultException noResult) {
+            result = null;
+        }
+        return result;
+    }
+
+    @Override
+    public UserTeam5 getUserByEmail(String email) {
+        TypedQuery<UserTeam5> q = em.createNamedQuery("Users.getUserByEmail", UserTeam5.class);
+        q.setParameter("email", email);
+        UserTeam5 result;
+        try {
+            result = q.getSingleResult();
+        }
+        catch (NoResultException noResult) {
+            result = null;
+        }
+        return result;
     }
 
     @Override
@@ -70,6 +98,11 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
     }
 
     @Override
+    public String getHashedPassword(char[] password) {
+        return passwordAuthentication.hash(password);
+    }
+
+    @Override
     public void removeAd(int id) {
         AdTeam5 ad = em.find(AdTeam5.class, id);
         if (ad == null)
@@ -87,29 +120,13 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
 
     @Override
     public boolean authenticateUser(String username, char[] password) {
-        TypedQuery<UserTeam5> q = em.createNamedQuery("Users.getUser", UserTeam5.class);
-        q.setParameter("username", username);
-        UserTeam5 user = q.getSingleResult();
-        if(user != null) {
-            return passwordAuthentication.authenticate(password, user.getPasswordToken());
-        }
-        return false;
+        UserTeam5 user = getUser(username);
+        return user != null && passwordAuthentication.authenticate(password, user.getPasswordToken());
     }
 
     @Override
     public boolean checkCredentialsAvailability(String username, String email) {
-        TypedQuery<UserTeam5> q = em.createNamedQuery("Users.getUser", UserTeam5.class);
-        q.setParameter("username", username);
-        UserTeam5 user = q.getSingleResult();
-        if(user != null) {
-            return false;
-        }
-        else {
-            TypedQuery<UserTeam5> q1 = em.createNamedQuery("Users.getUserByEmail", UserTeam5.class);
-            q1.setParameter("email", email);
-            UserTeam5 user1 = q.getSingleResult();
-            return user1 == null;
-        }
+        return getUser(username) == null && getUserByEmail(email) == null;
     }
 
     @Override

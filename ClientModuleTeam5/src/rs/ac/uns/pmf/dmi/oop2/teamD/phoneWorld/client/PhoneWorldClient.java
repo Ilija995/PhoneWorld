@@ -10,44 +10,19 @@ import java.awt.*;
 import java.util.List;
 
 /**
- * Bound class to GUI form
- * Shows client for Phone World App
+ * Content pane for a client side of the Phone World App
  */
+public class PhoneWorldClient extends JPanel {
 
-public class PhoneWorldClient extends JFrame {
-
-    private JPanel contentPane;
     private IPhoneWorldRepository repository;
-    private MainPanel mainPanel;
-    private Registration registrationPanel;
-
-    /**
-     * Launch the application.
-     */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
-                try {
-                    PhoneWorldClient frame = new PhoneWorldClient();
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-        });
-    }
 
     /**
      * Create the frame.
      */
-    public PhoneWorldClient(MainPanel mainPanel, Login loginPanel, Registration registrationPanel) {
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 450, 300);
-        contentPane = new JPanel();
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-        contentPane.setLayout(new BorderLayout(0, 0));
-        contentPane.add(loginPanel);
-        setContentPane(contentPane);
-        this.mainPanel = mainPanel;
-        this.registrationPanel = registrationPanel;
+    public PhoneWorldClient() {
+        setBorder(new EmptyBorder(5, 5, 5, 5));
+        setLayout(new BorderLayout(0, 0));
+        add(new Login(this));
     }
 
     public IPhoneWorldRepository getRepository() throws NamingException {
@@ -61,44 +36,35 @@ public class PhoneWorldClient extends JFrame {
         return repository;
     }
 
-    public boolean login(String username, String password){
-        boolean ok;
-        ok = repository.authenticateUser(username, password.toCharArray());
-        if(ok)
-            contentPane.removeAll();
-            contentPane.add(mainPanel);
-            contentPane.revalidate();
-            contentPane.repaint();
-        return ok;
+    public void showRegistrationPanel(){
+        removeAll();
+        add(new Registration(this));
+        revalidate();
+        repaint();
     }
 
-    public void registration(){
-        contentPane.removeAll();
-        contentPane.add(registrationPanel);
-        contentPane.revalidate();
-        contentPane.repaint();
+    public void showMainPanel(String username) {
+        removeAll();
+        add(new MainPanel(this, repository.getUser(username)));
+        revalidate();
+        repaint();
     }
 
-
-    public boolean insertUser(List<String> data){
-        boolean passwordMatch = data.get(4).equals(data.get(5));
-        boolean checkingUserMail = repository.checkCredentialsAvailability(data.get(3), data.get(2));;
-        if(passwordMatch  && checkingUserMail){
-            repository.addUser(data.get(3),
-                               data.get(0),
-                               data.get(1),
-                               data.get(2),
-                               data.get(4),
-                               data.get(7),
-                               data.get(6));
-            contentPane.removeAll();
-            contentPane.add(mainPanel);
-            contentPane.revalidate();
-            contentPane.repaint();
-            return true;
-        }
-        return false;
+    /**
+     * Launch the application.
+     */
+    public static void main(String[] args) {
+        EventQueue.invokeLater(() -> {
+            try {
+                JFrame frame = new JFrame();
+                frame.setBounds(100, 100, 1000, 700);
+                frame.setContentPane(new PhoneWorldClient());
+                frame.setVisible(true);
+                frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
-
 }
 

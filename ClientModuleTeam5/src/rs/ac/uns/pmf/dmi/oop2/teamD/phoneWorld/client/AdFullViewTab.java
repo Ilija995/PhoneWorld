@@ -12,15 +12,11 @@ import java.util.*;
 /**
  * Created by Aleksandar on 6/3/2016.
  */
+public class AdFullViewTab extends JPanel {
 
-public class FullViewTab extends JPanel {
-
-    /**
-     *
-     */
     private static final long serialVersionUID = 9173229264965205982L;
 
-    public FullViewTab(AdTeam5 ad) {
+    public AdFullViewTab(AdTeam5 ad) {
 
         setLayout(new BorderLayout(0, 0));
 
@@ -59,19 +55,19 @@ public class FullViewTab extends JPanel {
 
         JPanel pnlCenterTwo = new JPanel(new GridLayout(2, 3));
 
-        int currectPrice = ad.getBids().stream().max((b1, b2) -> b1.getAmount() - b2.getAmount()).get().getAmount();
+        int currentPrice = ad.getBids().stream().max((b1, b2) -> b1.getAmount() - b2.getAmount()).get().getAmount();
 
-        JLabel lblCurrectPrice = new JLabel(String.valueOf(currectPrice));
-        lblCurrectPrice.setOpaque(true);
+        JLabel lblCurrentPrice = new JLabel(String.valueOf(currentPrice));
+        lblCurrentPrice.setOpaque(true);
         switch (ad.getStatus()) {
             case ACTIVE :
-                lblCurrectPrice.setBackground(Color.GREEN);
+                lblCurrentPrice.setBackground(Color.GREEN);
                 break;
             case INACTIVE :
-                lblCurrectPrice.setBackground(Color.LIGHT_GRAY);
+                lblCurrentPrice.setBackground(Color.LIGHT_GRAY);
                 break;
             case CLOSED :
-                lblCurrectPrice.setBackground(Color.RED);
+                lblCurrentPrice.setBackground(Color.RED);
                 break;
         }
 
@@ -83,8 +79,8 @@ public class FullViewTab extends JPanel {
         btnBid.setEnabled(ad.getStatus() == StatusTeam5.ACTIVE && txtNewPrice.getText() != null);
         btnBid.addActionListener(e -> {
             int newPrice = Integer.parseInt(txtNewPrice.getText());
-            if (newPrice > currectPrice) {
-                lblCurrectPrice.setText(String.valueOf(newPrice));
+            if (newPrice > currentPrice) {
+                lblCurrentPrice.setText(String.valueOf(newPrice));
                 txtNewPrice.setText(null);
                 // TODO: add new bid to datebase
 

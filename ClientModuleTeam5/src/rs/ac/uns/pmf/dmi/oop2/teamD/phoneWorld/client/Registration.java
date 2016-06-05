@@ -1,5 +1,6 @@
 package rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.client;
 
+import javax.naming.NamingException;
 import javax.swing.*;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -16,11 +17,12 @@ public class Registration extends JPanel {
     private JTextField textFieldPassword;
     private JTextField textFieldDescription;
     private JTextField textFieldConfirmPassword;
+    private JTextField textFieldAvatarPath;
 
     /**
-     * Create the registration panel.
+     * Create the showRegistrationPanel panel.
      */
-    public Registration(PhoneWorldClient frame) {
+    public Registration(PhoneWorldClient client) {
 
         GridBagLayout gridBagLayout = new GridBagLayout();
         gridBagLayout.columnWidths = new int[]{86, 62, 73, 86, 109, 0};
@@ -29,7 +31,7 @@ public class Registration extends JPanel {
         gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
         setLayout(gridBagLayout);
 
-        JLabel lblPhoneWorldregistration = new JLabel("Phone World~registration:");
+        JLabel lblPhoneWorldregistration = new JLabel("Phone World~showRegistrationPanel:");
         GridBagConstraints gbc_lblPhoneWorldRegistration = new GridBagConstraints();
         gbc_lblPhoneWorldRegistration.fill = GridBagConstraints.HORIZONTAL;
         gbc_lblPhoneWorldRegistration.insets = new Insets(0, 0, 5, 5);
@@ -167,37 +169,48 @@ public class Registration extends JPanel {
         gbc_lblAvatar.gridy = 7;
         add(lblAvatar, gbc_lblAvatar);
 
-        JComboBox comboBox = new JComboBox();
-        GridBagConstraints gbc_comboBox = new GridBagConstraints();
-        gbc_comboBox.gridheight = 2;
-        gbc_comboBox.fill = GridBagConstraints.BOTH;
-        gbc_comboBox.insets = new Insets(0, 0, 0, 5);
-        gbc_comboBox.gridx = 2;
-        gbc_comboBox.gridy = 7;
-        add(comboBox, gbc_comboBox);
+        textFieldAvatarPath = new JTextField();
+        GridBagConstraints gbc_textFieldAvatarPath = new GridBagConstraints();
+        gbc_textFieldAvatarPath.insets = new Insets(0, 0, 5, 5);
+        gbc_textFieldAvatarPath.fill = GridBagConstraints.HORIZONTAL;
+        gbc_textFieldAvatarPath.gridx = 2;
+        gbc_textFieldAvatarPath.gridy = 7;
+        add(textFieldAvatarPath, gbc_textFieldAvatarPath);
+        textFieldAvatarPath.setColumns(10);
 
         JButton btnCreateAccount = new JButton("Create account");
         btnCreateAccount.addActionListener(e -> {
-                String name = textFieldName.getText();
-                String lastName = textFieldLastName.getText();
-                String email = textFieldMail.getText();
-                String username = textFieldUsername.getText();
-                String password = textFieldPassword.getText();
-                String confirmPassword = textFieldConfirmPassword.getText();
-                String description = textFieldDescription.getText();
-                String avatarPath = "";
-                List<String> data = new ArrayList<>();
-                data.add(0, name);
-                data.add(1, lastName);
-                data.add(2, email);
-                data.add(3, username);
-                data.add(4, password);
-                data.add(5, confirmPassword);
-                data.add(6, description);
-                data.add(7, avatarPath);
-                boolean successfulRegistration = frame.insertUser(data);
-                if(!successfulRegistration)
-                    JOptionPane.showMessageDialog(null, "Failed registration!");
+            String firstName = textFieldName.getText();
+            String lastName = textFieldLastName.getText();
+            String email = textFieldMail.getText();
+            String username = textFieldUsername.getText();
+            String password = textFieldPassword.getText();
+            String confirmPassword = textFieldConfirmPassword.getText();
+            String description = textFieldDescription.getText();
+            String avatarPath = textFieldAvatarPath.getText();
+
+            try {
+                if (!client.getRepository().checkCredentialsAvailability(username, email)) {
+                    JOptionPane.showMessageDialog(null, "Username or email already exists");
+                }
+                else if (!password.equals(confirmPassword)) {
+                    JOptionPane.showMessageDialog(null, "Passwords don't match");
+                }
+                else {
+                    client.getRepository().addUser(username,
+                                                    firstName,
+                                                    lastName,
+                                                    email,
+                                                    client.getRepository().getHashedPassword(password.toCharArray()),
+                                                    avatarPath,
+                                                    description);
+
+                    client.showMainPanel(username);
+                }
+            }
+            catch (NamingException ex) {
+                ex.printStackTrace();
+            }
         });
         GridBagConstraints gbc_btnCreateAccount = new GridBagConstraints();
         gbc_btnCreateAccount.fill = GridBagConstraints.HORIZONTAL;

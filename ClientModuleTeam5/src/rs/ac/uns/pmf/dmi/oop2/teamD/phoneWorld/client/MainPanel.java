@@ -23,7 +23,7 @@ public class MainPanel extends JPanel {
 
     private HomeTab homeTab;
     private AdsTab adsTab;
-    private FullViewTab fullViewTab;
+    private AdFullViewTab adFullViewTab;
 
     /**
      *
@@ -45,7 +45,7 @@ public class MainPanel extends JPanel {
         panelCenter.setLayout(new CardLayout());
         panelCenter.add(homeTab, 0);
         panelCenter.add(adsTab, 1);
-        panelCenter.add(fullViewTab, 2);
+        panelCenter.add(adFullViewTab, 2);
 
         JPanel panelWest = new JPanel();
         add(panelWest, BorderLayout.WEST);

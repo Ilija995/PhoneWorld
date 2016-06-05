@@ -1,12 +1,11 @@
 package rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.client;
 
+import javax.naming.NamingException;
 import javax.swing.*;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Login extends JPanel {
     private JTextField textFieldUsername;
@@ -15,7 +14,7 @@ public class Login extends JPanel {
     /**
      * Create the login panel.
      */
-    public Login(PhoneWorldClient frame) {
+    public Login(PhoneWorldClient client) {
 
         GridBagLayout gridBagLayout = new GridBagLayout();
         gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
@@ -69,11 +68,20 @@ public class Login extends JPanel {
 
         JButton btnLogin = new JButton("Login");
         btnLogin.addActionListener(e -> {
-                String username = textFieldUsername.getText();
-                String password = textFieldPassword.getText();
-                boolean successfulLogin = frame.login(username, password);
-                if(successfulLogin)
-                    JOptionPane.showMessageDialog(null, "Failed login! Check your username and password...");
+            String username = textFieldUsername.getText();
+            String password = textFieldPassword.getText();
+
+            try {
+                if (client.getRepository().authenticateUser(username, password.toCharArray())) {
+                    client.showMainPanel(username);
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "Login failed! Wrong username or password.");
+                }
+            }
+            catch (NamingException ex) {
+                ex.printStackTrace();
+            }
         });
         GridBagConstraints gbc_btnLogin = new GridBagConstraints();
         gbc_btnLogin.insets = new Insets(0, 0, 5, 5);
@@ -82,7 +90,7 @@ public class Login extends JPanel {
         add(btnLogin, gbc_btnLogin);
 
         JButton btnCreateAccount = new JButton("Create account");
-        btnCreateAccount.addActionListener(e -> frame.registration());
+        btnCreateAccount.addActionListener(e -> client.showRegistrationPanel());
 
         GridBagConstraints gbc_btnCreateAccount = new GridBagConstraints();
         gbc_btnCreateAccount.insets = new Insets(0, 0, 5, 0);

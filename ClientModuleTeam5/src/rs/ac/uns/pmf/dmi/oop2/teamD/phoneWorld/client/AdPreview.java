@@ -17,9 +17,6 @@ import java.util.Collection;
 
 public class AdPreview extends JPanel {
 
-    /**
-     *
-     */
     private static final long serialVersionUID = 2579675749216879576L;
 
     public AdPreview(AdTeam5 ad) {
