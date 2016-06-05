@@ -72,7 +72,7 @@ public class Login extends JPanel {
                 String username = textFieldUsername.getText();
                 String password = textFieldPassword.getText();
                 boolean successfulLogin = frame.login(username, password);
-                if(!successfulLogin)
+                if(successfulLogin)
                     JOptionPane.showMessageDialog(null, "Failed login! Check your username and password...");
         });
         GridBagConstraints gbc_btnLogin = new GridBagConstraints();
