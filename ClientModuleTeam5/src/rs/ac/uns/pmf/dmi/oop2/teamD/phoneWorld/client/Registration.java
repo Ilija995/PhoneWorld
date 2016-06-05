@@ -185,8 +185,7 @@ public class Registration extends JPanel {
                 String password = textFieldPassword.getText();
                 String confirmPassword = textFieldConfirmPassword.getText();
                 String description = textFieldDescription.getText();
-                //insert a path to the image
-                Icon avatar = new ImageIcon("");
+                String avatarPath = "";
                 List<String> data = new ArrayList<>();
                 data.add(0, name);
                 data.add(1, lastName);
@@ -195,7 +194,8 @@ public class Registration extends JPanel {
                 data.add(4, password);
                 data.add(5, confirmPassword);
                 data.add(6, description);
-                boolean successfulRegistration = frame.insertUser(data, avatar);
+                data.add(7, avatarPath);
+                boolean successfulRegistration = frame.insertUser(data);
                 if(!successfulRegistration)
                     JOptionPane.showMessageDialog(null, "Failed registration!");
         });

@@ -79,21 +79,25 @@ public class PhoneWorldClient extends JFrame {
         contentPane.repaint();
     }
 
-    /*data.add(0, name);
-                data.add(1, lastName);
-                data.add(2, email);
-                data.add(3, username);
-                data.add(4, password);
-                data.add(5, confirmPassword);
-                data.add(6, description);*/
 
-    public boolean insertUser(List<String> data, Icon avatar){
-        boolean ok;
+    public boolean insertUser(List<String> data){
         boolean passwordMatch = data.get(4).equals(data.get(5));
-        boolean checkingUserMail;
-        if(passwordMatch)
-            checkingUserMail = repository.checkCredentialsAvailability(data.get(3), data.get(2));
-        return ok;
+        boolean checkingUserMail = repository.checkCredentialsAvailability(data.get(3), data.get(2));;
+        if(passwordMatch  && checkingUserMail){
+            repository.addUser(data.get(3),
+                               data.get(0),
+                               data.get(1),
+                               data.get(2),
+                               data.get(4),
+                               data.get(7),
+                               data.get(6));
+            contentPane.removeAll();
+            contentPane.add(mainPanel);
+            contentPane.revalidate();
+            contentPane.repaint();
+            return true;
+        }
+        return false;
     }
 
 }
