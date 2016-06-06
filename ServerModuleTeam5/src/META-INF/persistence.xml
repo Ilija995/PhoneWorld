@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
-	<persistence-unit name="PHONE_WORLD_DB">
+	<persistence-unit name="PhoneWorldPersistence">
 		<class>rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.AdTeam5</class>
 		<class>rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.BidTeam5</class>
 		<class>rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.CommentTeam5</class>

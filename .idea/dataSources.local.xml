@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Local Db" uuid="a73531c8-9f97-4790-8fb2-8e6f8f6df169">
+      <secret-storage>master_key</secret-storage>
+      <user-name>sa</user-name>
+      <schema-pattern>TEST.*</schema-pattern>
+      <default-schemas>TEST.PUBLIC</default-schemas>
+    </data-source>
+  </component>
+</project>

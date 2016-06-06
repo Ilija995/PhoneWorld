@@ -29,7 +29,7 @@ public class PhoneWorldClient extends JPanel {
         if (repository == null) {
             InitialContext ctx = new InitialContext();
 
-            String name = "ejb:/PHONE_WORLD_DB//PhoneWorldRepository!" + IPhoneWorldRepository.class.getName();
+            String name = "ejb:PhoneWorldPersistence//PhoneWorldRepository!rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans.IPhoneWorldRepository";
             repository = (IPhoneWorldRepository) ctx.lookup(name);
         }
 

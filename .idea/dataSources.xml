@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="4215567659">
+    <data-source source="LOCAL" name="Local Db" uuid="a73531c8-9f97-4790-8fb2-8e6f8f6df169">
+      <driver-ref>java.sql.Driver</driver-ref>
+      <synchronize>true</synchronize>
+      <configured-by-url>true</configured-by-url>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:tcp://localhost/~/test</jdbc-url>
+      <default-dialect>Derby</default-dialect>
+    </data-source>
+  </component>
+</project>

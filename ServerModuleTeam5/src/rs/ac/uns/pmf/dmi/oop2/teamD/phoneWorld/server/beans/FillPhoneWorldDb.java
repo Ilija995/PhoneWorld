@@ -1,7 +1,6 @@
 package rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans;
 
 import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.*;
-import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.utilities.ImageStorage;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -11,7 +10,6 @@ import javax.ejb.Startup;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.sql.Timestamp;
-import java.util.Collection;
 
 /**
  * Local bean that fills the database at startup
@@ -21,7 +19,7 @@ import java.util.Collection;
 @Startup
 public class FillPhoneWorldDb {
 
-    @PersistenceContext(name = "PHONE_WORLD_DB")
+    @PersistenceContext(name = "PhoneWorldPersistence")
     private EntityManager em;
 
     @EJB(beanName = "PhoneWorldRepository")

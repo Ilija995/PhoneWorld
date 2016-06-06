@@ -23,7 +23,7 @@ import javax.persistence.TypedQuery;
 @Remote(IPhoneWorldRepository.class)
 public class PhoneWorldRepository implements IPhoneWorldRepository {
 
-    @PersistenceContext(name = "PHONE_WORLD_DB")
+    @PersistenceContext(name = "PhoneWorldPersistence")
     private EntityManager em;
 
     private PasswordAuthentication passwordAuthentication = new PasswordAuthentication();

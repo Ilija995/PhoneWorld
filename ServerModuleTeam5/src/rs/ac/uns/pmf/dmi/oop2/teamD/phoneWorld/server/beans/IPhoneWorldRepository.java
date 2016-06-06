@@ -2,6 +2,7 @@ package rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans;
 
 import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.*;
 
+import javax.ejb.Remote;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.sql.Timestamp;
@@ -10,6 +11,7 @@ import java.util.List;
 /**
  * Interface for repository that communicates with database
  */
+@Remote
 public interface IPhoneWorldRepository {
 
     List<AdTeam5> getAllUserAds(String username);
