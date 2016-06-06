@@ -4,9 +4,12 @@ import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.AdTeam5;
 import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.CommentTeam5;
 import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.PhoneTeam5;
 import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.StatusTeam5;
+import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.BidTeam5;
 
+import javax.naming.NamingException;
 import javax.swing.*;
 import java.awt.*;
+import java.sql.Timestamp;
 import java.util.*;
 
 /**
@@ -16,7 +19,7 @@ public class AdFullViewTab extends JPanel {
 
     private static final long serialVersionUID = 9173229264965205982L;
 
-    public AdFullViewTab(AdTeam5 ad) {
+    public AdFullViewTab(AdTeam5 ad, MainPanel main) {
 
         setLayout(new BorderLayout(0, 0));
 
@@ -82,7 +85,11 @@ public class AdFullViewTab extends JPanel {
             if (newPrice > currentPrice) {
                 lblCurrentPrice.setText(String.valueOf(newPrice));
                 txtNewPrice.setText(null);
-                // TODO: add new bid to datebase
+                try {
+                    main.getClientFromMain().getRepository().addBid(ad, main.getUserFromMain(), newPrice);
+                } catch (NamingException e1) {
+                    e1.printStackTrace();
+                }
 
                 validate();
                 repaint();
@@ -94,13 +101,23 @@ public class AdFullViewTab extends JPanel {
         JTextField txtNewComment = new JTextField(30);
         pnlCenterTwo.add(txtNewComment);
 
-        JButton btnSendCommnet = new JButton("SEND");
-        btnSendCommnet.setEnabled(txtNewComment.getText() != null);
-        btnSendCommnet.addActionListener(e -> {
-            // TODO: Create new commnent add it to datebase and add it to scrollpane
+        JButton btnSendComment = new JButton("SEND");
+        btnSendComment.setEnabled(txtNewComment.getText() != null);
+        btnSendComment.addActionListener(e -> {
+            // TODO: add it to scrollpane
+            try {
+                main.getClientFromMain().getRepository().addComment(txtNewComment.getText(), main.getUserFromMain(), ad, new Timestamp(System.currentTimeMillis()));
+            } catch (NamingException e1) {
+                e1.printStackTrace();
+            }
+            /*im not sure whats supposed to happen here
+            updateScrollPaneWithNewComment();
+            validate();
+            repaint();
+            */
         });
 
-        pnlCenterTwo.add(btnSendCommnet);
+        pnlCenterTwo.add(btnSendComment);
 
         pnlCenter.add(pnlCenterTwo);
 
@@ -120,6 +137,18 @@ public class AdFullViewTab extends JPanel {
 
     public void updateScrollPaneWithNewComment() {
         // TODO:
+        /*Collection<CommentTeam5> comments = ad.getComments();
+
+        java.util.List<Comment> commentList = new ArrayList<>();
+
+        for (CommentTeam5 comment : comments) {
+            commentList.add(new Comment(comment.getUser(), comment.getContent()));
+        }
+
+        JScrollPane southScrollPane = new JScrollPane((Component) commentList);
+
+        add(southScrollPane, BorderLayout.SOUTH);*/
+
     }
 
 }

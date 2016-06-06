@@ -33,6 +33,14 @@ public class MainPanel extends JPanel {
     private PhoneWorldClient client;
     private UserTeam5 user;
 
+    public UserTeam5 getUserFromMain() {
+        return user;
+    }
+
+    public PhoneWorldClient getClientFromMain() {
+        return client;
+    }
+
     public MainPanel(PhoneWorldClient client, UserTeam5 user) {
 
         this.client = client;
