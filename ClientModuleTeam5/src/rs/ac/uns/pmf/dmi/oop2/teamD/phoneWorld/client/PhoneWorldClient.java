@@ -1,13 +1,16 @@
 package rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.client;
 
 import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans.IPhoneWorldRepository;
+import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans.PhoneWorldRepository;
 
+import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.util.List;
+import java.util.Properties;
 
 /**
  * Content pane for a client side of the Phone World App
@@ -15,6 +18,10 @@ import java.util.List;
 public class PhoneWorldClient extends JPanel {
 
     private IPhoneWorldRepository repository;
+
+    private static Context initialContext;
+
+    private static final String PKG_INTERFACES = "org.jboss.ejb.client.naming";
 
     /**
      * Create the frame.
@@ -25,12 +32,23 @@ public class PhoneWorldClient extends JPanel {
         add(new Login(this));
     }
 
+    public static Context getInitialContext() throws NamingException {
+        if (initialContext == null) {
+            Properties properties = new Properties();
+            properties.put(Context.URL_PKG_PREFIXES, PKG_INTERFACES);
+
+            initialContext = new InitialContext(properties);
+        }
+        return initialContext;
+    }
+
     public IPhoneWorldRepository getRepository() throws NamingException {
         if (repository == null) {
-            InitialContext ctx = new InitialContext();
 
-            String name = "ejb:PhoneWorldPersistence//PhoneWorldRepository!rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans.IPhoneWorldRepository";
-            repository = (IPhoneWorldRepository) ctx.lookup(name);
+            //String name = "ServerModuleTeam5/PhoneWorldPersistence//PhoneWorldRepository!rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans.IPhoneWorldRepository";
+            String name = "ejb:ServerModuleTeam5/ServerModuleTeam5-EJB//PhoneWorldRepository!rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans.IPhoneWorldRepository";
+            //String name = "ejb:PhoneWorldPersistence//PhoneWorldRepository!rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans.IPhoneWorldRepository";
+            repository = (IPhoneWorldRepository) getInitialContext().lookup(name);
         }
 
         return repository;
