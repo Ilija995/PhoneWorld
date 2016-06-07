@@ -100,17 +100,13 @@ public class AdFullViewTab extends JPanel {
         JButton btnSendComment = new JButton("SEND");
         btnSendComment.setEnabled(txtNewComment.getText() != null);
         btnSendComment.addActionListener(e -> {
-            // TODO: add it to scrollpane
+
             try {
                 main.getClientFromMain().getRepository().addComment(txtNewComment.getText(), main.getUserFromMain(), ad, new Timestamp(System.currentTimeMillis()));
             } catch (NamingException e1) {
                 e1.printStackTrace();
             }
-            /*im not sure whats supposed to happen here
-            updateScrollPaneWithNewComment();
-            validate();
-            repaint();
-            */
+
         });
 
         pnlCenterTwo.add(btnSendComment);
@@ -129,21 +125,7 @@ public class AdFullViewTab extends JPanel {
 
         add(southScrollPane, BorderLayout.SOUTH);
 
-    }
 
-    public void updateScrollPaneWithNewComment() {
-        // TODO:
-        /*Collection<CommentTeam5> comments = ad.getComments();
-
-        java.util.List<Comment> commentList = new ArrayList<>();
-
-        for (CommentTeam5 comment : comments) {
-            commentList.add(new Comment(comment.getUser(), comment.getContent()));
-        }
-
-        JScrollPane southScrollPane = new JScrollPane((Component) commentList);
-
-        add(southScrollPane, BorderLayout.SOUTH);*/
 
     }
 

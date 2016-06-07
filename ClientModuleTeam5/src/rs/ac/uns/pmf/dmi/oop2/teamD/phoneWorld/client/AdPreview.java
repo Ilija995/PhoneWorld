@@ -32,10 +32,6 @@ public class AdPreview extends JPanel {
         panelWest.add(lblThumbnail);
         lblThumbnail.setIcon(null);
 
-        /**
-         * TODO: Add Icon
-         */
-
         JPanel panelEast = new JPanel();
         add(panelEast, BorderLayout.EAST);
 
@@ -70,7 +66,7 @@ public class AdPreview extends JPanel {
         lblAdTitle.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                // TODO:
+
             }
         });
 
