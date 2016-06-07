@@ -1,0 +1,222 @@
+19:32:09,687 INFO  [org.jboss.modules] (main) JBoss Modules version 1.5.1.Final
+19:32:17,635 INFO  [org.jboss.msc] (main) JBoss MSC version 1.2.6.Final
+19:32:18,292 INFO  [org.jboss.as] (MSC service thread 1-3) WFLYSRV0049: WildFly Full 10.0.0.Final (WildFly Core 2.0.10.Final) starting
+19:32:28,456 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0015: Re-attempting failed deployment ServerModuleTeam5.war
+19:32:28,513 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0004: Found ServerModuleTeam5.war in deployment directory. To trigger deployment create a file called ServerModuleTeam5.war.dodeploy
+19:32:28,851 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+19:32:29,346 INFO  [org.xnio] (MSC service thread 1-2) XNIO version 3.3.4.Final
+19:32:29,363 INFO  [org.xnio.nio] (MSC service thread 1-2) XNIO NIO Implementation Version 3.3.4.Final
+19:32:30,388 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 53) WFLYSEC0002: Activating Security Subsystem
+19:32:30,433 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 38) WFLYCLINF0001: Activating Infinispan subsystem.
+19:32:30,524 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 46) WFLYNAM0001: Activating Naming Subsystem
+19:32:30,366 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 54) WFLYTX0013: Node identifier property is set to the default value. Please make sure it is unique.
+19:32:30,566 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 56) WFLYWS0002: Activating WebServices Extension
+19:32:30,776 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 44) WFLYJSF0007: Activated the following JSF Implementations: [main]
+19:32:30,836 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 37) WFLYIO001: Worker 'default' has auto-configured to 4 core threads with 32 task threads based on your 2 available processors
+19:32:30,861 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 55) WFLYUT0003: Undertow 1.3.15.Final starting
+19:32:30,887 INFO  [org.jboss.as.security] (MSC service thread 1-1) WFLYSEC0001: Current PicketBox version=4.9.4.Final
+19:32:30,930 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0003: Undertow 1.3.15.Final starting
+19:32:31,550 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 33) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.3)
+19:32:31,717 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 55) WFLYUT0014: Creating file handler for path 'C:\wildfly-10.0.0.Final/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+19:32:31,791 INFO  [org.jboss.as.naming] (MSC service thread 1-4) WFLYNAM0003: Starting Naming Service
+19:32:31,869 INFO  [org.jboss.as.connector] (MSC service thread 1-4) WFLYJCA0009: Starting JCA Subsystem (WildFly/IronJacamar 1.3.2.Final)
+19:32:32,619 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-3) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+19:32:32,628 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-3) WFLYJCA0018: Started Driver service with driver-name = h2
+19:32:33,067 INFO  [org.jboss.remoting] (MSC service thread 1-1) JBoss Remoting version 4.0.18.Final
+19:32:33,102 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0012: Started server default-server.
+19:32:33,166 INFO  [org.jboss.as.ejb3] (MSC service thread 1-1) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 32 (per class), which is derived from thread worker pool sizing.
+19:32:33,167 INFO  [org.jboss.as.ejb3] (MSC service thread 1-1) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 8 (per class), which is derived from the number of CPUs on this host.
+19:32:33,286 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0018: Host default-host starting
+19:32:33,558 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+19:32:35,467 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-3) WFLYDS0013: Started FileSystemDeploymentService for directory C:\wildfly-10.0.0.Final\standalone\deployments
+19:32:35,585 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0027: Starting deployment of "ServerModuleTeam5.war" (runtime-name: "ServerModuleTeam5.war")
+19:32:39,580 INFO  [org.infinispan.factories.GlobalComponentRegistry] (MSC service thread 1-1) ISPN000128: Infinispan version: Infinispan 'Mahou' 8.1.0.Final
+19:32:42,362 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-1) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+19:32:42,433 INFO  [org.jboss.ws.common.management] (MSC service thread 1-2) JBWS022052: Starting JBossWS 5.1.3.Final (Apache CXF 3.1.4) 
+19:32:44,370 INFO  [org.jboss.as.jpa] (MSC service thread 1-3) WFLYJPA0002: Read persistence.xml for ?ServerModuleTeam5
+19:32:45,346 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 59) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'ServerModuleTeam5.war#?ServerModuleTeam5'
+19:32:45,783 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 59) HHH000204: Processing PersistenceUnitInfo [
+	name: ?ServerModuleTeam5
+	...]
+19:32:46,395 INFO  [org.jboss.weld.deployer] (MSC service thread 1-2) WFLYWELD0003: Processing weld deployment ServerModuleTeam5.war
+19:32:49,518 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-2) HV000001: Hibernate Validator 5.2.3.Final
+19:32:50,257 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 59) HHH000412: Hibernate Core {5.0.7.Final}
+19:32:50,272 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 59) HHH000206: hibernate.properties not found
+19:32:50,276 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 59) HHH000021: Bytecode provider name : javassist
+19:32:51,507 INFO  [org.hibernate.orm.deprecation] (ServerService Thread Pool -- 59) HHH90000001: Found usage of deprecated setting for specifying Scanner [hibernate.ejb.resource_scanner]; use [hibernate.archive.scanner] instead
+19:32:51,745 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 59) HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+19:32:52,034 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'PhoneWorldRepository' in deployment unit 'deployment "ServerModuleTeam5.war"' are as follows:
+
+	java:global/ServerModuleTeam5/PhoneWorldRepository!rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans.IPhoneWorldRepository
+	java:app/ServerModuleTeam5/PhoneWorldRepository!rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans.IPhoneWorldRepository
+	java:module/PhoneWorldRepository!rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans.IPhoneWorldRepository
+	java:jboss/exported/ServerModuleTeam5/PhoneWorldRepository!rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans.IPhoneWorldRepository
+	java:global/ServerModuleTeam5/PhoneWorldRepository
+	java:app/ServerModuleTeam5/PhoneWorldRepository
+	java:module/PhoneWorldRepository
+
+19:32:52,042 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'FillPhoneWorldDb' in deployment unit 'deployment "ServerModuleTeam5.war"' are as follows:
+
+	java:global/ServerModuleTeam5/FillPhoneWorldDb!rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans.FillPhoneWorldDb
+	java:app/ServerModuleTeam5/FillPhoneWorldDb!rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans.FillPhoneWorldDb
+	java:module/FillPhoneWorldDb!rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans.FillPhoneWorldDb
+	java:global/ServerModuleTeam5/FillPhoneWorldDb
+	java:app/ServerModuleTeam5/FillPhoneWorldDb
+	java:module/FillPhoneWorldDb
+
+19:32:53,233 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 59) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+19:32:53,240 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 59) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+19:32:53,242 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 59) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+19:32:53,244 INFO  [org.infinispan.configuration.cache.EvictionConfigurationBuilder] (ServerService Thread Pool -- 59) ISPN000152: Passivation configured without an eviction policy being selected. Only manually evicted entities will be passivated.
+19:32:53,552 INFO  [org.jboss.weld.deployer] (MSC service thread 1-2) WFLYWELD0006: Starting Services for CDI deployment: ServerModuleTeam5.war
+19:32:54,728 INFO  [org.jboss.weld.Version] (MSC service thread 1-2) WELD-000900: 2.3.2 (Final)
+19:32:55,174 INFO  [org.jboss.weld.deployer] (MSC service thread 1-4) WFLYWELD0009: Starting weld service for deployment ServerModuleTeam5.war
+19:32:59,047 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 60) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'ServerModuleTeam5.war#?ServerModuleTeam5'
+19:32:59,369 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 59) WFLYCLINF0002: Started client-mappings cache from ejb container
+19:33:00,344 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 60) HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+19:33:00,365 WARN  [org.hibernate.dialect.H2Dialect] (ServerService Thread Pool -- 60) HHH000431: Unable to determine H2 database version, certain features may not work
+19:33:00,598 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 60) Envers integration enabled? : true
+19:33:10,378 INFO  [org.hibernate.tool.hbm2ddl.SchemaUpdate] (ServerService Thread Pool -- 60) HHH000228: Running hbm2ddl schema update
+19:33:11,503 INFO  [org.hibernate.hql.internal.QueryTranslatorFactoryInitiator] (ServerService Thread Pool -- 60) HHH000397: Using ASTQueryTranslatorFactory
+19:33:12,421 WARN  [org.hibernate.orm.deprecation] (ServerService Thread Pool -- 60) HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.elements]; use collection function syntax instead [elements(null)].
+19:33:12,487 WARN  [org.hibernate.orm.deprecation] (ServerService Thread Pool -- 60) HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.elements]; use collection function syntax instead [elements(null)].
+19:33:15,702 INFO  [org.jboss.ejb.client] (ServerService Thread Pool -- 63) JBoss EJB Client version 2.1.4.Final
+19:33:16,241 INFO  [stdout] (ServerService Thread Pool -- 63) Hibernate: call next value for hibernate_sequence
+
+19:33:16,431 INFO  [stdout] (ServerService Thread Pool -- 63) Hibernate: call next value for hibernate_sequence
+
+19:33:16,437 INFO  [stdout] (ServerService Thread Pool -- 63) Hibernate: call next value for hibernate_sequence
+
+19:33:16,551 INFO  [stdout] (ServerService Thread Pool -- 63) Hibernate: call next value for hibernate_sequence
+
+19:33:16,571 INFO  [stdout] (ServerService Thread Pool -- 63) Hibernate: call next value for hibernate_sequence
+
+19:33:16,627 INFO  [stdout] (ServerService Thread Pool -- 63) Hibernate: call next value for hibernate_sequence
+
+19:33:16,635 INFO  [stdout] (ServerService Thread Pool -- 63) Hibernate: call next value for hibernate_sequence
+
+19:33:16,648 INFO  [stdout] (ServerService Thread Pool -- 63) Hibernate: call next value for hibernate_sequence
+
+19:33:16,663 INFO  [stdout] (ServerService Thread Pool -- 63) Hibernate: call next value for hibernate_sequence
+
+19:33:16,708 ERROR [org.jboss.msc.service.fail] (ServerService Thread Pool -- 63) MSC000001: Failed to start service jboss.deployment.unit."ServerModuleTeam5.war".component.FillPhoneWorldDb.START: org.jboss.msc.service.StartException in service jboss.deployment.unit."ServerModuleTeam5.war".component.FillPhoneWorldDb.START: java.lang.IllegalStateException: WFLYEE0042: Failed to construct component instance
+	at org.jboss.as.ee.component.ComponentStartService$1.run(ComponentStartService.java:57)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:320)
+Caused by: java.lang.IllegalStateException: WFLYEE0042: Failed to construct component instance
+	at org.jboss.as.ee.component.BasicComponent.constructComponentInstance(BasicComponent.java:163)
+	at org.jboss.as.ee.component.BasicComponent.constructComponentInstance(BasicComponent.java:134)
+	at org.jboss.as.ee.component.BasicComponent.createInstance(BasicComponent.java:88)
+	at org.jboss.as.ejb3.component.singleton.SingletonComponent.getComponentInstance(SingletonComponent.java:124)
+	at org.jboss.as.ejb3.component.singleton.SingletonComponent.start(SingletonComponent.java:138)
+	at org.jboss.as.ee.component.ComponentStartService$1.run(ComponentStartService.java:54)
+	... 6 more
+Caused by: javax.ejb.EJBException: javax.persistence.PersistenceException: org.hibernate.PersistentObjectException: detached entity passed to persist: rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.PhoneTeam5
+	at org.jboss.as.ejb3.tx.CMTTxInterceptor.handleExceptionInOurTx(CMTTxInterceptor.java:187)
+	at org.jboss.as.ejb3.tx.CMTTxInterceptor.invokeInOurTx(CMTTxInterceptor.java:277)
+	at org.jboss.as.ejb3.tx.CMTTxInterceptor.requiresNew(CMTTxInterceptor.java:349)
+	at org.jboss.as.ejb3.tx.LifecycleCMTTxInterceptor.processInvocation(LifecycleCMTTxInterceptor.java:66)
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+	at org.jboss.as.weld.injection.WeldInjectionContextInterceptor.processInvocation(WeldInjectionContextInterceptor.java:43)
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+	at org.jboss.as.ejb3.component.interceptors.CurrentInvocationContextInterceptor.processInvocation(CurrentInvocationContextInterceptor.java:41)
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+	at org.jboss.as.ee.concurrent.ConcurrentContextInterceptor.processInvocation(ConcurrentContextInterceptor.java:45)
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+	at org.jboss.invocation.ContextClassLoaderInterceptor.processInvocation(ContextClassLoaderInterceptor.java:64)
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+	at org.jboss.invocation.InterceptorContext.run(InterceptorContext.java:356)
+	at org.jboss.invocation.PrivilegedWithCombinerInterceptor.processInvocation(PrivilegedWithCombinerInterceptor.java:80)
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+	at org.jboss.invocation.ChainedInterceptor.processInvocation(ChainedInterceptor.java:61)
+	at org.jboss.as.ee.component.BasicComponent.constructComponentInstance(BasicComponent.java:161)
+	... 11 more
+Caused by: javax.persistence.PersistenceException: org.hibernate.PersistentObjectException: detached entity passed to persist: rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.PhoneTeam5
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1692)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1602)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1608)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.persist(AbstractEntityManagerImpl.java:1152)
+	at org.jboss.as.jpa.container.AbstractEntityManager.persist(AbstractEntityManager.java:580)
+	at rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans.FillPhoneWorldDb.postConstruct(FillPhoneWorldDb.java:53)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.jboss.as.ee.component.ManagedReferenceLifecycleMethodInterceptor.processInvocation(ManagedReferenceLifecycleMethodInterceptor.java:96)
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+	at org.jboss.as.weld.ejb.Jsr299BindingsInterceptor.doLifecycleInterception(Jsr299BindingsInterceptor.java:114)
+	at org.jboss.as.weld.ejb.Jsr299BindingsInterceptor.processInvocation(Jsr299BindingsInterceptor.java:103)
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+	at org.jboss.invocation.InterceptorContext$Invocation.proceed(InterceptorContext.java:437)
+	at org.jboss.weld.ejb.AbstractEJBRequestScopeActivationInterceptor.aroundInvoke(AbstractEJBRequestScopeActivationInterceptor.java:73)
+	at org.jboss.as.weld.ejb.EjbRequestScopeActivationInterceptor.processInvocation(EjbRequestScopeActivationInterceptor.java:83)
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+	at org.jboss.as.weld.injection.WeldInjectionInterceptor.processInvocation(WeldInjectionInterceptor.java:53)
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+	at org.jboss.as.ee.component.ManagedReferenceFieldInjectionInterceptorFactory$ManagedReferenceFieldInjectionInterceptor.processInvocation(ManagedReferenceFieldInjectionInterceptorFactory.java:107)
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+	at org.jboss.as.ee.component.ManagedReferenceFieldInjectionInterceptorFactory$ManagedReferenceFieldInjectionInterceptor.processInvocation(ManagedReferenceFieldInjectionInterceptorFactory.java:107)
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+	at org.jboss.as.ee.component.AroundConstructInterceptorFactory$1.processInvocation(AroundConstructInterceptorFactory.java:28)
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+	at org.jboss.as.weld.injection.WeldInterceptorInjectionInterceptor.processInvocation(WeldInterceptorInjectionInterceptor.java:56)
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+	at org.jboss.as.weld.ejb.Jsr299BindingsCreateInterceptor.processInvocation(Jsr299BindingsCreateInterceptor.java:100)
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+	at org.jboss.as.ee.component.NamespaceContextInterceptor.processInvocation(NamespaceContextInterceptor.java:50)
+	at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:340)
+	at org.jboss.as.ejb3.tx.CMTTxInterceptor.invokeInOurTx(CMTTxInterceptor.java:275)
+	... 27 more
+Caused by: org.hibernate.PersistentObjectException: detached entity passed to persist: rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.PhoneTeam5
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:124)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:58)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:775)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:748)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:753)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.persist(AbstractEntityManagerImpl.java:1146)
+	... 57 more
+
+19:33:16,717 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("deploy") failed - address: ([("deployment" => "ServerModuleTeam5.war")]) - failure description: {"WFLYCTL0080: Failed services" => {"jboss.deployment.unit.\"ServerModuleTeam5.war\".component.FillPhoneWorldDb.START" => "org.jboss.msc.service.StartException in service jboss.deployment.unit.\"ServerModuleTeam5.war\".component.FillPhoneWorldDb.START: java.lang.IllegalStateException: WFLYEE0042: Failed to construct component instance
+    Caused by: java.lang.IllegalStateException: WFLYEE0042: Failed to construct component instance
+    Caused by: javax.ejb.EJBException: javax.persistence.PersistenceException: org.hibernate.PersistentObjectException: detached entity passed to persist: rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.PhoneTeam5
+    Caused by: javax.persistence.PersistenceException: org.hibernate.PersistentObjectException: detached entity passed to persist: rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.PhoneTeam5
+    Caused by: org.hibernate.PersistentObjectException: detached entity passed to persist: rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.PhoneTeam5"}}
+19:33:17,028 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 34) WFLYSRV0010: Deployed "ServerModuleTeam5.war" (runtime-name : "ServerModuleTeam5.war")
+19:33:17,040 INFO  [org.jboss.as.controller] (Controller Boot Thread) WFLYCTL0183: Service status report
+WFLYCTL0186:   Services which failed to start:      service jboss.deployment.unit."ServerModuleTeam5.war".component.FillPhoneWorldDb.START: org.jboss.msc.service.StartException in service jboss.deployment.unit."ServerModuleTeam5.war".component.FillPhoneWorldDb.START: java.lang.IllegalStateException: WFLYEE0042: Failed to construct component instance
+
+19:33:17,632 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+19:33:17,633 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+19:33:17,633 ERROR [org.jboss.as] (Controller Boot Thread) WFLYSRV0026: WildFly Full 10.0.0.Final (WildFly Core 2.0.10.Final) started (with errors) in 68755ms - Started 413 of 687 services (5 services failed or missing dependencies, 382 services are lazy, passive or on-demand)
+19:33:17,813 INFO  [org.jboss.weld.deployer] (MSC service thread 1-4) WFLYWELD0010: Stopping weld service for deployment ServerModuleTeam5.war
+19:33:17,837 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 26) WFLYJPA0011: Stopping Persistence Unit (phase 2 of 2) Service 'ServerModuleTeam5.war#?ServerModuleTeam5'
+19:33:17,860 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 26) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'ServerModuleTeam5.war#?ServerModuleTeam5'
+19:33:17,878 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0028: Stopped deployment ServerModuleTeam5.war (runtime-name: ServerModuleTeam5.war) in 142ms
+19:33:17,914 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 2) WFLYCLINF0003: Stopped client-mappings cache from ejb container
+19:33:20,255 INFO  [org.jboss.as.server] (DeploymentScanner-threads - 1) WFLYSRV0009: Undeployed "ServerModuleTeam5.war" (runtime-name: "ServerModuleTeam5.war")
+19:33:20,265 INFO  [org.jboss.as.controller] (DeploymentScanner-threads - 1) WFLYCTL0183: Service status report
+WFLYCTL0184:    New missing/unsatisfied dependencies:
+      service jboss.deployment.unit."ServerModuleTeam5.war".WeldStartService (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5, service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5.UndertowDeploymentInfoService] 
+      service jboss.deployment.unit."ServerModuleTeam5.war".component.FillPhoneWorldDb.START (missing) dependents: [service jboss.deployment.unit."ServerModuleTeam5.war".deploymentCompleteService, service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5, service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5.UndertowDeploymentInfoService, service jboss.deployment.unit."ServerModuleTeam5.war".moduleDeploymentRuntimeInformationStart] 
+      service jboss.deployment.unit."ServerModuleTeam5.war".component.PhoneWorldRepository.START (missing) dependents: [service jboss.deployment.unit."ServerModuleTeam5.war".deploymentCompleteService, service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5, service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5.UndertowDeploymentInfoService, service jboss.deployment.unit."ServerModuleTeam5.war".moduleDeploymentRuntimeInformationStart] 
+      service jboss.deployment.unit."ServerModuleTeam5.war".component."com.sun.faces.config.ConfigureListener".START (missing) dependents: [service jboss.deployment.unit."ServerModuleTeam5.war".deploymentCompleteService, service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5, service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5.UndertowDeploymentInfoService] 
+      service jboss.deployment.unit."ServerModuleTeam5.war".component."javax.faces.webapp.FacetTag".START (missing) dependents: [service jboss.deployment.unit."ServerModuleTeam5.war".deploymentCompleteService, service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5, service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5.UndertowDeploymentInfoService] 
+      service jboss.deployment.unit."ServerModuleTeam5.war".component."javax.servlet.jsp.jstl.tlv.PermittedTaglibsTLV".START (missing) dependents: [service jboss.deployment.unit."ServerModuleTeam5.war".deploymentCompleteService, service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5, service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5.UndertowDeploymentInfoService] 
+      service jboss.deployment.unit."ServerModuleTeam5.war".component."javax.servlet.jsp.jstl.tlv.ScriptFreeTLV".START (missing) dependents: [service jboss.deployment.unit."ServerModuleTeam5.war".deploymentCompleteService, service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5, service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5.UndertowDeploymentInfoService] 
+      service jboss.deployment.unit."ServerModuleTeam5.war".component."org.jboss.weld.servlet.WeldInitialListener".START (missing) dependents: [service jboss.deployment.unit."ServerModuleTeam5.war".deploymentCompleteService, service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5, service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5.UndertowDeploymentInfoService] 
+      service jboss.deployment.unit."ServerModuleTeam5.war".component."org.jboss.weld.servlet.WeldTerminalListener".START (missing) dependents: [service jboss.deployment.unit."ServerModuleTeam5.war".deploymentCompleteService, service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5, service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5.UndertowDeploymentInfoService] 
+      service jboss.deployment.unit."ServerModuleTeam5.war".ee.ComponentRegistry (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5.UndertowDeploymentInfoService] 
+      service jboss.deployment.unit."ServerModuleTeam5.war".moduleDeploymentRuntimeInformation (missing) dependents: [service jboss.deployment.unit."ServerModuleTeam5.war".moduleDeploymentRuntimeInformationStart] 
+      service jboss.persistenceunit."ServerModuleTeam5.war#?ServerModuleTeam5" (missing) dependents: [service jboss.deployment.unit."ServerModuleTeam5.war".deploymentCompleteService, service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5, service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5.UndertowDeploymentInfoService] 
+      service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5 (missing) dependents: [service jboss.deployment.unit."ServerModuleTeam5.war".deploymentCompleteService] 
+      service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5.UndertowDeploymentInfoService (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5] 
+      service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5.codec (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5.UndertowDeploymentInfoService] 
+      service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5.session (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5.UndertowDeploymentInfoService] 
+      service org.wildfly.request-controller.control-point."ServerModuleTeam5.war".undertow (missing) dependents: [service jboss.undertow.deployment.default-server.default-host./ServerModuleTeam5.UndertowDeploymentInfoService] 
+WFLYCTL0186:   Services which failed to start:      service jboss.deployment.unit."ServerModuleTeam5.war".component.FillPhoneWorldDb.START
+
+19:33:22,156 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0004: Found ServerModuleTeam5.war in deployment directory. To trigger deployment create a file called ServerModuleTeam5.war.dodeploy
