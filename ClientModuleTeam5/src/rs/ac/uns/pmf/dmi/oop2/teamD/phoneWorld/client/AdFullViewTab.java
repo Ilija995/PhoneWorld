@@ -1,10 +1,6 @@
 package rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.client;
 
-import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.AdTeam5;
-import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.CommentTeam5;
-import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.PhoneTeam5;
-import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.StatusTeam5;
-import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.BidTeam5;
+import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.*;
 
 import javax.naming.NamingException;
 import javax.swing.*;
@@ -63,13 +59,13 @@ public class AdFullViewTab extends JPanel {
         JLabel lblCurrentPrice = new JLabel(String.valueOf(currentPrice));
         lblCurrentPrice.setOpaque(true);
         switch (ad.getStatus()) {
-            case ACTIVE :
+            case "ACTIVE" :
                 lblCurrentPrice.setBackground(Color.GREEN);
                 break;
-            case INACTIVE :
+            case "INACTIVE" :
                 lblCurrentPrice.setBackground(Color.LIGHT_GRAY);
                 break;
-            case CLOSED :
+            case "CLOSED" :
                 lblCurrentPrice.setBackground(Color.RED);
                 break;
         }
@@ -79,7 +75,7 @@ public class AdFullViewTab extends JPanel {
         pnlCenterTwo.add(txtNewPrice);
 
         JButton btnBid = new JButton("BID");
-        btnBid.setEnabled(ad.getStatus() == StatusTeam5.ACTIVE && txtNewPrice.getText() != null);
+        btnBid.setEnabled(ad.getStatus().equals(StatusTeam5.ACTIVE.name()) && txtNewPrice.getText() != null);
         btnBid.addActionListener(e -> {
             int newPrice = Integer.parseInt(txtNewPrice.getText());
             if (newPrice > currentPrice) {

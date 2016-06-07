@@ -148,7 +148,7 @@ public class Registration extends JPanel {
         gbc_lblDescription.insets = new Insets(0, 0, 5, 5);
         gbc_lblDescription.anchor = GridBagConstraints.WEST;
         gbc_lblDescription.gridx = 1;
-        gbc_lblDescription.gridy = 6;
+        gbc_lblDescription.gridy = 7;
         add(lblDescription, gbc_lblDescription);
 
         textFieldDescription = new JTextField();
@@ -156,7 +156,7 @@ public class Registration extends JPanel {
         gbc_textFieldDescription.insets = new Insets(0, 0, 5, 5);
         gbc_textFieldDescription.fill = GridBagConstraints.HORIZONTAL;
         gbc_textFieldDescription.gridx = 2;
-        gbc_textFieldDescription.gridy = 6;
+        gbc_textFieldDescription.gridy = 7;
         add(textFieldDescription, gbc_textFieldDescription);
         textFieldDescription.setColumns(10);
 
@@ -166,7 +166,7 @@ public class Registration extends JPanel {
         gbc_lblAvatar.insets = new Insets(0, 0, 0, 5);
         gbc_lblAvatar.anchor = GridBagConstraints.WEST;
         gbc_lblAvatar.gridx = 1;
-        gbc_lblAvatar.gridy = 7;
+        gbc_lblAvatar.gridy = 8;
         add(lblAvatar, gbc_lblAvatar);
 
         textFieldAvatarPath = new JTextField();
@@ -174,7 +174,7 @@ public class Registration extends JPanel {
         gbc_textFieldAvatarPath.insets = new Insets(0, 0, 5, 5);
         gbc_textFieldAvatarPath.fill = GridBagConstraints.HORIZONTAL;
         gbc_textFieldAvatarPath.gridx = 2;
-        gbc_textFieldAvatarPath.gridy = 7;
+        gbc_textFieldAvatarPath.gridy = 8;
         add(textFieldAvatarPath, gbc_textFieldAvatarPath);
         textFieldAvatarPath.setColumns(10);
 

@@ -2,80 +2,52 @@ package rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 
 /**
  * Represents one user account
  */
-@Entity(name = "USERS_TEAM_5")
+@Entity
+@Table(name = "USER_TEAM_5", schema = "PUBLIC", catalog = "TEST")
 @NamedQueries({
-		@NamedQuery(name = "Users.getUser", query = "SELECT user FROM USERS_TEAM_5 user WHERE username = :username"),
-		@NamedQuery(name = "Users.getUserByEmail", query = "SELECT user FROM USERS_TEAM_5 user WHERE email = :email"),
-		@NamedQuery(name = "Users.getByAd", query = "SELECT user FROM USERS_TEAM_5 user WHERE :ad MEMBER OF user.ads"),
-		@NamedQuery(name = "Users.getByBid", query = "SELECT user FROM USERS_TEAM_5 user WHERE :bid MEMBER OF user.bids"),
+		@NamedQuery(name = "Users.getUser", query = "SELECT user FROM UserTeam5 user WHERE username = :username"),
+		@NamedQuery(name = "Users.getUserByEmail", query = "SELECT user FROM UserTeam5 user WHERE email = :email"),
+		@NamedQuery(name = "Users.getByAd", query = "SELECT user FROM UserTeam5 user WHERE :ad MEMBER OF user.ads"),
+		@NamedQuery(name = "Users.getByBid", query = "SELECT user FROM UserTeam5 user WHERE :bid MEMBER OF user.bids"),
 })
 public class UserTeam5 implements Serializable {
-
-	private Integer id;
-	private String username;
-	private String firstName;
-	private String secondName;
-	private String email;
-	private String passwordToken; // Not storing raw password for security reasons
-	private String avatarPath;
+	private int userId;
+	private String passwordToken;
 	private String userInfo;
+	private String avatarPath;
+	private String username;
 	private Collection<AdTeam5> ads;
-	private Collection<BidTeam5> bids;
 	private Collection<CommentTeam5> comments;
+	private Collection<BidTeam5> bids;
+	private String firstName;
+	private String lastName;
+	private String email;
 
 	public UserTeam5() {
-
+		ads = new ArrayList<>();
+		bids = new ArrayList<>();
+		comments = new ArrayList<>();
 	}
 
 	@Id
+	@Column(name = "USER_ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	public Integer getId() {
-		return id;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
-	@Column(unique = true)
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getSecondName() {
-		return secondName;
-	}
-
-	public void setSecondName(String secondName) {
-		this.secondName = secondName;
-	}
-
-	@Column(unique = true)
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
+	@Basic
+	@Column(name = "PASSWORD_TOKEN")
 	public String getPasswordToken() {
 		return passwordToken;
 	}
@@ -84,6 +56,18 @@ public class UserTeam5 implements Serializable {
 		this.passwordToken = passwordToken;
 	}
 
+	@Basic
+	@Column(name = "USER_INFO")
+	public String getUserInfo() {
+		return userInfo;
+	}
+
+	public void setUserInfo(String userInfo) {
+		this.userInfo = userInfo;
+	}
+
+	@Basic
+	@Column(name = "AVATAR_PATH")
 	public String getAvatarPath() {
 		return avatarPath;
 	}
@@ -92,12 +76,47 @@ public class UserTeam5 implements Serializable {
 		this.avatarPath = avatarPath;
 	}
 
-	public String getUserInfo() {
-		return userInfo;
+	@Basic
+	@Column(name = "USERNAME")
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserInfo(String userInfo) {
-		this.userInfo = userInfo;
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		UserTeam5 userTeam5 = (UserTeam5) o;
+
+		if (userId != userTeam5.userId) return false;
+		if (firstName != null ? !firstName.equals(userTeam5.firstName) : userTeam5.firstName != null) return false;
+		if (lastName != null ? !lastName.equals(userTeam5.lastName) : userTeam5.lastName != null) return false;
+		if (email != null ? !email.equals(userTeam5.email) : userTeam5.email != null) return false;
+		if (passwordToken != null ? !passwordToken.equals(userTeam5.passwordToken) : userTeam5.passwordToken != null)
+			return false;
+		if (userInfo != null ? !userInfo.equals(userTeam5.userInfo) : userTeam5.userInfo != null) return false;
+		if (avatarPath != null ? !avatarPath.equals(userTeam5.avatarPath) : userTeam5.avatarPath != null) return false;
+		if (username != null ? !username.equals(userTeam5.username) : userTeam5.username != null) return false;
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = userId;
+		result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+		result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+		result = 31 * result + (email != null ? email.hashCode() : 0);
+		result = 31 * result + (passwordToken != null ? passwordToken.hashCode() : 0);
+		result = 31 * result + (userInfo != null ? userInfo.hashCode() : 0);
+		result = 31 * result + (avatarPath != null ? avatarPath.hashCode() : 0);
+		result = 31 * result + (username != null ? username.hashCode() : 0);
+		return result;
 	}
 
 	@OneToMany(mappedBy = "owner")
@@ -109,6 +128,15 @@ public class UserTeam5 implements Serializable {
 		this.ads = ads;
 	}
 
+	@OneToMany(mappedBy = "user")
+	public Collection<CommentTeam5> getComments() {
+		return comments;
+	}
+
+	public void setComments(Collection<CommentTeam5> comments) {
+		this.comments = comments;
+	}
+
 	@OneToMany(mappedBy = "bidder")
 	public Collection<BidTeam5> getBids() {
 		return bids;
@@ -118,12 +146,33 @@ public class UserTeam5 implements Serializable {
 		this.bids = bids;
 	}
 
-	@OneToMany(mappedBy = "user")
-	public Collection<CommentTeam5> getComments() {
-		return comments;
+	@Basic
+	@Column(name = "FIRST_NAME")
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setComments(Collection<CommentTeam5> comments) {
-		this.comments = comments;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	@Basic
+	@Column(name = "LAST_NAME")
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	@Basic
+	@Column(name = "EMAIL")
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }

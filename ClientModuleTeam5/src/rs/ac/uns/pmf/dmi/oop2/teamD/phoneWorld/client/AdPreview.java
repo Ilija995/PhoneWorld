@@ -1,8 +1,6 @@
 package rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.client;
 
-import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.AdTeam5;
-import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.BidTeam5;
-import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.PhoneTeam5;
+import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.*;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -10,6 +8,8 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Collection;
+
+import static rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.StatusTeam5.ACTIVE;
 
 /**
  * Created by Aleksandar on 6/3/2016.
@@ -43,13 +43,13 @@ public class AdPreview extends JPanel {
         lblPrice.setOpaque(true);
         panelEast.add(lblPrice);
         switch (ad.getStatus()) {
-            case ACTIVE :
+            case "ACTIVE" :
                 lblPrice.setBackground(Color.GREEN);
                 break;
-            case INACTIVE :
+            case "INACTIVE" :
                 lblPrice.setBackground(Color.LIGHT_GRAY);
                 break;
-            case CLOSED :
+            case "CLOSED" :
                 lblPrice.setBackground(Color.RED);
                 break;
         }

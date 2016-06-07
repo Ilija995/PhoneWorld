@@ -1,7 +1,5 @@
 package rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.client;
 
-import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.AdTeam5;
-
 import javax.swing.JPanel;
 import java.awt.*;
 import java.util.List;

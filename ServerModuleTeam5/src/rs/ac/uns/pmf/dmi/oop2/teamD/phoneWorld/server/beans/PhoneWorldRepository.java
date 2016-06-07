@@ -162,7 +162,7 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
         ad.setPhone(phone);
         ad.setTitle(title);
         ad.setDescription(description);
-        ad.setStatus(status);
+        ad.setStatus(status.name());
         ad.setTimestamp(timestamp);
         owner.getAds().add(ad);
         em.persist(ad);
@@ -197,7 +197,7 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
         UserTeam5 u = new UserTeam5();
         u.setUsername(username);
         u.setFirstName(firstName);
-        u.setSecondName(secondName);
+        u.setLastName(secondName);
         u.setEmail(email);
         u.setPasswordToken(passwordToken);
         u.setAvatarPath(avatarPath);
@@ -213,7 +213,7 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
                                 String displaySize,
                                 String displayResolution,
                                 String cpu,
-                                int batteryCapacity,
+                                String batteryCapacity,
                                 String photosFolderPath
     ) {
         PhoneTeam5 p = new PhoneTeam5();

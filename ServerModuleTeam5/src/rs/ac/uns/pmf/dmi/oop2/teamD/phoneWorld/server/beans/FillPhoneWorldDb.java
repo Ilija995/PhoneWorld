@@ -28,8 +28,8 @@ public class FillPhoneWorldDb {
     @PostConstruct
     public void postConstruct() {
 
-        PhoneTeam5 p1 = repository.addPhone("Nokia", "3310","20*70*40", "1 inch","480*480 p", "quad-core",2300, null /* default */);
-        PhoneTeam5 p2 = repository.addPhone("Nokia", "3210","20*75*40", "1.1 inch","480*480 p", "dual-core",2350, null /* default */);
+        PhoneTeam5 p1 = repository.addPhone("Nokia", "3310","20*70*40", "1 inch","480*480 p", "quad-core","2300", null /* default */);
+        PhoneTeam5 p2 = repository.addPhone("Nokia", "3210","20*75*40", "1.1 inch","480*480 p", "dual-core","2350", null /* default */);
 
         UserTeam5 u1 = repository.addUser("Nokia lover", "Pera", "Peric", "peraperic@gmail.com", "1234pass", null /* default */, "i love nokias");
         UserTeam5 u2 = repository.addUser("Nokia hater", "Mika", "Mikic", "mikamikic@gmail.com", "12345pass", null /* default */, "i hate nokias");

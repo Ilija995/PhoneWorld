@@ -1,6 +1,6 @@
 package rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.client;
 
-import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.UserTeam5;
+import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.*;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;

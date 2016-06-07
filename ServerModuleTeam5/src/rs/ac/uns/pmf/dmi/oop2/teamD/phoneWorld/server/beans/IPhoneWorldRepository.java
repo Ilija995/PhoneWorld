@@ -2,8 +2,6 @@ package rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans;
 
 import rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.entities.*;
 
-import javax.ejb.Remote;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.util.List;
@@ -11,7 +9,6 @@ import java.util.List;
 /**
  * Interface for repository that communicates with database
  */
-@Remote
 public interface IPhoneWorldRepository {
 
     List<AdTeam5> getAllUserAds(String username);
@@ -45,11 +42,11 @@ public interface IPhoneWorldRepository {
     String addPhonePhotos(String username, String adId, List<byte[]> photos) throws IOException;
 
     AdTeam5 addAd(UserTeam5 owner,
-                          PhoneTeam5 phone,
-                          String title,
-                          String description,
-                          StatusTeam5 status,
-                          Timestamp timestamp
+                  PhoneTeam5 phone,
+                  String title,
+                  String description,
+                  StatusTeam5 status,
+                  Timestamp timestamp
     );
 
     BidTeam5 addBid(AdTeam5 ad, UserTeam5 bidder, Integer amount);
@@ -69,7 +66,7 @@ public interface IPhoneWorldRepository {
                         String displaySize,
                         String displayResolution,
                         String cpu,
-                        int batteryCapacity,
+                        String batteryCapacity,
                         String photosFolderPath
     );
 
