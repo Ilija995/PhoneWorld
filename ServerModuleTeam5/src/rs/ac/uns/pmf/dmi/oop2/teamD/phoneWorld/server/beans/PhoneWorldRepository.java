@@ -121,6 +121,8 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
     @Override
     public boolean authenticateUser(String username, char[] password) {
         UserTeam5 user = getUser(username);
+        System.out.println("Username: " + ((user != null) ? user.getUsername() : "/"));
+        System.out.println("Token: " + ((user != null) ? user.getPasswordToken() : "/"));
         return user != null && passwordAuthentication.authenticate(password, user.getPasswordToken());
     }
 
@@ -167,6 +169,7 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
         owner.getAds().add(ad);
         ad = em.merge(ad);
         em.merge(owner);
+        em.flush();
         return ad;
     }
 
@@ -182,6 +185,7 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
         bid = em.merge(bid);
         em.merge(ad);
         em.merge(bidder);
+        em.flush();
         return bid;
     }
 
@@ -202,7 +206,14 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
         u.setPasswordToken(passwordToken);
         u.setAvatarPath(avatarPath);
         u.setUserInfo(userInfo);
+
+        UserTeam5 tryUser = getUser(username);
+        if (tryUser != null) {
+            return tryUser;
+        }
+
         u = em.merge(u);
+        em.flush();
         return u;
     }
 
@@ -226,6 +237,7 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
         p.setBatteryCapacity(batteryCapacity);
         p.setPhotosFolderPath(photosFolderPath);
         p = em.merge(p);
+        em.flush();
         return p;
 
     }
@@ -246,6 +258,7 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
         c = em.merge(c);
         em.merge(ad);
         em.merge(user);
+        em.flush();
         return c;
     }
 }

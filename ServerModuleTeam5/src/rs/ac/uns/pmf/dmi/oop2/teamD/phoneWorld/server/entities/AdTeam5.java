@@ -110,7 +110,7 @@ public class AdTeam5 implements Serializable {
 		return result;
 	}
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "OWNER_ID", referencedColumnName = "USER_ID")
 	public UserTeam5 getOwner() {
 		return owner;
@@ -130,7 +130,7 @@ public class AdTeam5 implements Serializable {
 		this.phone = phone;
 	}
 
-	@OneToMany(mappedBy = "ad")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "ad", cascade = CascadeType.ALL)
 	public Set<BidTeam5> getBids() {
 		return bids;
 	}
@@ -139,7 +139,7 @@ public class AdTeam5 implements Serializable {
 		this.bids = bids;
 	}
 
-	@OneToMany(mappedBy = "ad")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "ad", cascade = CascadeType.ALL)
 	public Set<CommentTeam5> getComments() {
 		return comments;
 	}

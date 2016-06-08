@@ -31,8 +31,8 @@ public class FillPhoneWorldDb {
         PhoneTeam5 p1 = repository.addPhone("Nokia", "3310","20*70*40", "1 inch","480*480 p", "quad-core","2300", null /* default */);
         PhoneTeam5 p2 = repository.addPhone("Nokia", "3210","20*75*40", "1.1 inch","480*480 p", "dual-core","2350", null /* default */);
 
-        UserTeam5 u1 = repository.addUser("Nokia lover", "Pera", "Peric", "peraperic@gmail.com", "1234pass", null /* default */, "i love nokias");
-        UserTeam5 u2 = repository.addUser("Nokia hater", "Mika", "Mikic", "mikamikic@gmail.com", "12345pass", null /* default */, "i hate nokias");
+        UserTeam5 u1 = repository.addUser("nokialover", "Pera", "Peric", "peraperic@gmail.com", repository.getHashedPassword("1234".toCharArray()), null /* default */, "i love nokias");
+        UserTeam5 u2 = repository.addUser("nokiahater", "Mika", "Mikic", "mikamikic@gmail.com", repository.getHashedPassword("123".toCharArray()), null /* default */, "i hate nokias");
 
         AdTeam5 a1 = repository.addAd(u1, p1, "selling nokia 3310", "awesome phone", StatusTeam5.ACTIVE, Timestamp.valueOf("2016-09-23 11:10:10.0"));
         AdTeam5 a2 = repository.addAd(u2, p2, "selling nokia 3210", "bad phone", StatusTeam5.ACTIVE, Timestamp.valueOf("2016-09-22 10:16:10.0"));
