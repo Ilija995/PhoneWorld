@@ -5,6 +5,8 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Represents one phone advertisement
@@ -23,12 +25,12 @@ public class AdTeam5 implements Serializable {
 	private Timestamp timestamp;
 	private UserTeam5 owner;
 	private PhoneTeam5 phone;
-	private Collection<BidTeam5> bids;
-	private Collection<CommentTeam5> comments;
+	private Set<BidTeam5> bids;
+	private Set<CommentTeam5> comments;
 
 	public AdTeam5() {
-		bids = new ArrayList<>();
-		comments = new ArrayList<>();
+		bids = new HashSet<>();
+		comments = new HashSet<>();
 	}
 
 	@Id
@@ -129,20 +131,20 @@ public class AdTeam5 implements Serializable {
 	}
 
 	@OneToMany(mappedBy = "ad")
-	public Collection<BidTeam5> getBids() {
+	public Set<BidTeam5> getBids() {
 		return bids;
 	}
 
-	public void setBids(Collection<BidTeam5> bids) {
+	public void setBids(Set<BidTeam5> bids) {
 		this.bids = bids;
 	}
 
 	@OneToMany(mappedBy = "ad")
-	public Collection<CommentTeam5> getComments() {
+	public Set<CommentTeam5> getComments() {
 		return comments;
 	}
 
-	public void setComments(Collection<CommentTeam5> comments) {
+	public void setComments(Set<CommentTeam5> comments) {
 		this.comments = comments;
 	}
 }

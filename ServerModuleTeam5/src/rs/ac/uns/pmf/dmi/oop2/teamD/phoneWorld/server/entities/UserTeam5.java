@@ -4,6 +4,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Represents one user account
@@ -22,17 +24,17 @@ public class UserTeam5 implements Serializable {
 	private String userInfo;
 	private String avatarPath;
 	private String username;
-	private Collection<AdTeam5> ads;
-	private Collection<CommentTeam5> comments;
-	private Collection<BidTeam5> bids;
+	private Set<AdTeam5> ads;
+	private Set<CommentTeam5> comments;
+	private Set<BidTeam5> bids;
 	private String firstName;
 	private String lastName;
 	private String email;
 
 	public UserTeam5() {
-		ads = new ArrayList<>();
-		bids = new ArrayList<>();
-		comments = new ArrayList<>();
+		ads = new HashSet<>();
+		bids = new HashSet<>();
+		comments = new HashSet<>();
 	}
 
 	@Id
@@ -120,29 +122,29 @@ public class UserTeam5 implements Serializable {
 	}
 
 	@OneToMany(mappedBy = "owner")
-	public Collection<AdTeam5> getAds() {
+	public Set<AdTeam5> getAds() {
 		return ads;
 	}
 
-	public void setAds(Collection<AdTeam5> ads) {
+	public void setAds(Set<AdTeam5> ads) {
 		this.ads = ads;
 	}
 
 	@OneToMany(mappedBy = "user")
-	public Collection<CommentTeam5> getComments() {
+	public Set<CommentTeam5> getComments() {
 		return comments;
 	}
 
-	public void setComments(Collection<CommentTeam5> comments) {
+	public void setComments(Set<CommentTeam5> comments) {
 		this.comments = comments;
 	}
 
 	@OneToMany(mappedBy = "bidder")
-	public Collection<BidTeam5> getBids() {
+	public Set<BidTeam5> getBids() {
 		return bids;
 	}
 
-	public void setBids(Collection<BidTeam5> bids) {
+	public void setBids(Set<BidTeam5> bids) {
 		this.bids = bids;
 	}
 

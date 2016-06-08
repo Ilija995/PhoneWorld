@@ -65,8 +65,6 @@
       <column name="AVATAR_PATH" sqlType="VARCHAR" precision="2147483647" scale="0" nullable="true" jdbcType="12"/>
       <column name="USERNAME" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="CONSTRAINT_1" columns="USER_ID"/>
-      <index name="USER_TEAM_5_username_uindex" unique="true" columns="USERNAME"/>
-      <index name="user_team_5_email_uindex" unique="true" columns="EMAIL"/>
     </table>
   </data-source>
 </component>

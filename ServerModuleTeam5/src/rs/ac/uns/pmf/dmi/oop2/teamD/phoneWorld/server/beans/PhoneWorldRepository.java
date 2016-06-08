@@ -165,7 +165,7 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
         ad.setStatus(status.name());
         ad.setTimestamp(timestamp);
         owner.getAds().add(ad);
-        em.persist(ad);
+        ad = em.merge(ad);
         em.merge(owner);
         return ad;
     }
@@ -179,7 +179,7 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
         bid.setAmount(amount);
         ad.getBids().add(bid);
         bidder.getBids().add(bid);
-        em.persist(bid);
+        bid = em.merge(bid);
         em.merge(ad);
         em.merge(bidder);
         return bid;
@@ -202,7 +202,7 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
         u.setPasswordToken(passwordToken);
         u.setAvatarPath(avatarPath);
         u.setUserInfo(userInfo);
-        em.persist(u);
+        u = em.merge(u);
         return u;
     }
 
@@ -225,7 +225,7 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
         p.setCpu(cpu);
         p.setBatteryCapacity(batteryCapacity);
         p.setPhotosFolderPath(photosFolderPath);
-        em.persist(p);
+        p = em.merge(p);
         return p;
 
     }
@@ -243,7 +243,7 @@ public class PhoneWorldRepository implements IPhoneWorldRepository {
         c.setTimestamp(timestamp);
         user.getComments().add(c);
         ad.getComments().add(c);
-        em.persist(c);
+        c = em.merge(c);
         em.merge(ad);
         em.merge(user);
         return c;

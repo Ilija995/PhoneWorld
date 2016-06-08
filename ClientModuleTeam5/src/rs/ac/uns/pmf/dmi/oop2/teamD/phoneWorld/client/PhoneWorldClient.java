@@ -36,6 +36,7 @@ public class PhoneWorldClient extends JPanel {
         if (initialContext == null) {
             Properties properties = new Properties();
             properties.put(Context.URL_PKG_PREFIXES, PKG_INTERFACES);
+            properties.put("jboss.naming.client.ejb.context", true);
 
             initialContext = new InitialContext(properties);
         }
@@ -45,9 +46,11 @@ public class PhoneWorldClient extends JPanel {
     public IPhoneWorldRepository getRepository() throws NamingException {
         if (repository == null) {
 
-            //String name = "ServerModuleTeam5/PhoneWorldPersistence//PhoneWorldRepository!rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans.IPhoneWorldRepository";
-            String name = "ejb:ServerModuleTeam5/ServerModuleTeam5-EJB//PhoneWorldRepository!rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans.IPhoneWorldRepository";
+            //String name = "ejb:ServerModuleTeam5/PhoneWorldPersistence//PhoneWorldRepository!rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans.IPhoneWorldRepository";
+            //String name = "ejb:ServerModuleTeam5//PhoneWorldRepository!rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans.IPhoneWorldRepository";
             //String name = "ejb:PhoneWorldPersistence//PhoneWorldRepository!rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans.IPhoneWorldRepository";
+            //String name = "ejb:PhoneWorld/ServerModuleTeam5//PhoneWorldRepository!rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans.IPhoneWorldRepository";
+            String name = "ejb:/ServerModuleTeam5_ejb_exploded//PhoneWorldRepository!rs.ac.uns.pmf.dmi.oop2.teamD.phoneWorld.server.beans.IPhoneWorldRepository";
             repository = (IPhoneWorldRepository) getInitialContext().lookup(name);
         }
 
